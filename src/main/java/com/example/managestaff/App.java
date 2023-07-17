@@ -18,7 +18,7 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
+// note test
     public static void main(String[] args) {
         launch();
     }
