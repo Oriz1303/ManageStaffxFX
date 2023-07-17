@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashboardAnchorPane" prefHeight="457.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.managestaff.controller.Dashboard">
+<AnchorPane fx:id="dashboardAnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.managestaff.controller.Dashboard">
    <children>
       <AnchorPane layoutX="-14.0" prefHeight="46.0" prefWidth="200.0" style="-fx-background-color: #002d40;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <ImageView fx:id="exit" fitHeight="20.0" fitWidth="44.0" layoutX="641.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="exit" fitHeight="20.0" fitWidth="44.0" layoutX="958.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/images/icons/close_1828665.png" />
                </image>
@@ -21,6 +22,11 @@
                   <Image url="@../assets/images/icons/main-menu_7711100.png" />
                </image>
             </ImageView>
+            <Label layoutX="469.0" layoutY="10.0" text="Dashboard" textFill="#ebebeb">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
       <AnchorPane layoutY="46.0" prefHeight="411.0" prefWidth="44.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
          <children>
@@ -60,7 +66,7 @@
          </children>
       </AnchorPane>
       <AnchorPane fx:id="pane1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane prefHeight="411.0" prefWidth="44.0" style="-fx-background-color: White;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+      <AnchorPane prefHeight="554.0" prefWidth="44.0" style="-fx-background-color: White;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
          <children>
             <VBox fx:id="hbox1" alignment="TOP_CENTER" prefHeight="167.0" prefWidth="44.0" spacing="18.0" AnchorPane.topAnchor="20.0">
                <children>
@@ -98,7 +104,7 @@
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="pane2" prefHeight="411.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="44.0">
+      <AnchorPane fx:id="pane2" prefHeight="554.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="44.0">
          <children>
             <VBox focusTraversable="true" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                <children>
@@ -112,17 +118,17 @@
                         <Font size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" prefHeight="38.0" prefWidth="200.0">
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" prefHeight="38.0" prefWidth="200.0" text="ok">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="86.0" prefHeight="38.0" prefWidth="200.0">
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="86.0" prefHeight="38.0" prefWidth="200.0" text="asdas">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="139.0" prefHeight="38.0" prefWidth="200.0">
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="139.0" prefHeight="38.0" prefWidth="200.0" text="asdasd">
                      <font>
                         <Font size="18.0" />
                      </font>

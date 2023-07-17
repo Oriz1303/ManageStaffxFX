@@ -1,34 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginScene" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.managestaff.controller.Login">
+<AnchorPane fx:id="loginScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="1002.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.managestaff.controller.Login">
+
    <children>
-      <GridPane layoutX="200.0" layoutY="115.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="71.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="129.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <ImageView fitHeight="425.0" fitWidth="410.0" layoutX="56.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/icons/background7.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="441.0" prefHeight="600.0" prefWidth="561.0">
          <children>
-            <PasswordField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Username" />
-            <Label text="Password" GridPane.rowIndex="1" />
-            <TextField fx:id="username" prefHeight="25.0" prefWidth="135.0" GridPane.columnIndex="1" />
+            <TextField fx:id="inputUsername" layoutX="127.0" layoutY="281.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="277.0" promptText="Username" style="-fx-border-color: #E1E1E1; -fx-background-color: tranparent; -fx-border-radius: 50;" />
+            <PasswordField fx:id="inputPassword" layoutX="127.0" layoutY="337.0" prefHeight="39.0" prefWidth="277.0" promptText="Password" style="-fx-border-color: #E1E1E1; -fx-background-color: tranparent; -fx-border-radius: 50;" />
+            <Label layoutX="164.0" layoutY="228.0" text="Access your account" textAlignment="CENTER">
+               <font>
+                  <Font name="Gill Sans MT" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="197.0" layoutY="197.0" text="Welcome" textAlignment="CENTER">
+               <font>
+                  <Font name="Gill Sans MT Bold" size="27.0" />
+               </font>
+            </Label>
+            <CheckBox layoutX="127.0" layoutY="392.0" mnemonicParsing="false" text="ShowPasswssord">
+               <font>
+                  <Font name="Gill Sans MT" size="14.0" />
+               </font>
+            </CheckBox>
+            <Button fx:id="btnLogin" layoutX="127.0" layoutY="443.0" mnemonicParsing="false" onMouseClicked="#onClickedLogin" prefHeight="46.0" prefWidth="277.0" style="-fx-background-color: black; -fx-background-radius: 50;" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="Gill Sans MT" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="306.0" layoutY="394.0" text="ForgotPassword?" textFill="#156eda">
+               <font>
+                  <Font name="Gill Sans MT" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="175.0" fitWidth="173.0" layoutX="179.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: red;">
+               <image>
+                  <Image url="@../assets/images/icons/logo1.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="370.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/images/icons/icon_user.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="370.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/images/icons/icon_lock.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="499.0" layoutY="7.0" mnemonicParsing="false" onAction="#exit" prefHeight="39.0" prefWidth="40.0" styleClass="btnExit" stylesheets="@../assets/css/style.css">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/images/icons/icon_close1.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="loginMsg" layoutX="208.0" layoutY="541.0" />
+<!--            <FontAwesomeIcon fill="#e1dbdb" glyphName="USER" layoutX="367.0" layoutY="309.0" size="2em" />-->
+<!--            <FontAwesomeIcon fill="#e1dbdb" glyphName="LOCK" layoutX="368.0" layoutY="366.0" size="2em" text="" />-->
          </children>
-      </GridPane>
-      <Button fx:id="btnLogin" layoutX="277.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#btnLogin" text="Login" />
-      <Label fx:id="errorMsg" layoutX="286.0" layoutY="249.0" />
-      <Button layoutX="126.0" layoutY="266.0" mnemonicParsing="false" onMouseClicked="#switchScene" text="switch" />
+      </AnchorPane>
    </children>
 </AnchorPane>
