@@ -1,8 +1,9 @@
 package com.example.managestaff.controller;
 
-import com.example.managestaff.dao.JDBCConnect;
+    import com.example.managestaff.dao.JDBCConnect;
 import com.example.managestaff.model.SwitchScene;
-import javafx.fxml.FXML;
+    import javafx.event.ActionEvent;
+    import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -20,39 +21,50 @@ public class Login {
     private Button btnLogin;
 
     @FXML
-    private PasswordField password;
+    private PasswordField inputPassword;
 
     @FXML
-    private TextField username;
-
-    @FXML
-    private Label errorMsg;
-
+    private TextField inputUsername;
 
 
     @FXML
-    void switchScene(MouseEvent event) throws IOException  {
-            new SwitchScene(loginScene, "view/dashboard.fxml");
-    }
+    private Label loginMsg;
+
     @FXML
-    void btnLogin(MouseEvent event) {
-        if(username.getText().isBlank()) {
-            errorMsg.setText("Enter username");
+    void onClickedLogin(MouseEvent event) throws Exception {
+        if (inputUsername.getText().isBlank()) {
+            loginMsg.setText("Enter username");
         }
 
-        if(password.getText().isBlank()) {
-            errorMsg.setText("Enter password");
+        if (inputPassword.getText().isBlank()) {
+            loginMsg.setText("Enter password");
         }
 
-        String usernameStr = username.getText();
-        String passwordStr = password.getText();
+        String usernameStr = inputUsername.getText();
+        String passwordStr = inputPassword.getText();
         JDBCConnect dao = new JDBCConnect();
         boolean flag = dao.login(usernameStr, passwordStr);
-        if(flag) {
-            errorMsg.setText("Completed");
+        if (flag) {
+            new SwitchScene(loginScene, "view/dashboard.fxml");
         } else {
-            errorMsg.setText("failed");
+            loginMsg.setText("failed");
         }
+
+
+    }
+
+    public void  exit(){
+        System.exit(0);
+    }
+
+    @FXML
+    void switchScene(MouseEvent event) throws IOException {
+
+    }
+
+    @FXML
+    void btnLogin(MouseEvent event) {
+
     }
 
 }
