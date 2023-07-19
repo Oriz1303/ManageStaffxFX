@@ -1,5 +1,25 @@
+.bgWhite{
+    -fx-background-color:#fff;
+}
+.bgBlack{
+ -fx-background-color:#000;
+
+}
+
 .btnExit{
     -fx-background-color:#fff;
     -fx-cursor:hand;
 
 }
+.btnRed{
+      -fx-background-color:#000;
+        -fx-cursor:hand;
+}
+.img{
+  -fx-cursor:hand;
+}
+.img:hover{
+    -fx-opacity:0.73
+}
+
+

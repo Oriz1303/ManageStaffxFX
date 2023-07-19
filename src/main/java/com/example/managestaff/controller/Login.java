@@ -1,9 +1,10 @@
 package com.example.managestaff.controller;
 
-    import com.example.managestaff.dao.JDBCConnect;
+import com.example.managestaff.dao.JDBCConnect;
 import com.example.managestaff.model.SwitchScene;
-    import javafx.event.ActionEvent;
-    import javafx.fxml.FXML;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.AccessibleRole;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -34,6 +35,7 @@ public class Login {
     void onClickedLogin(MouseEvent event) throws Exception {
         if (inputUsername.getText().isBlank()) {
             loginMsg.setText("Enter username");
+
         }
 
         if (inputPassword.getText().isBlank()) {
@@ -47,13 +49,12 @@ public class Login {
         if (flag) {
             new SwitchScene(loginScene, "view/dashboard.fxml");
         } else {
-            loginMsg.setText("failed");
+            AlertMessage alertMessage = new AlertMessage();
+            alertMessage.errorMessage("Incorrect Username/Passwrod");
         }
-
-
     }
 
-    public void  exit(){
+    public void exit() {
         System.exit(0);
     }
 
