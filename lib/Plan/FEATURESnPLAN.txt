@@ -1,0 +1,28 @@
+* FEATURES of PROJECT
+1. Đăng nhập và quản lý người dùng:
+   - đăng nhập với tài khoản người dùng và mật khẩu.
+   - quản lý thông tin người dùng, bao gồm tạo, xem, sửa và xóa người dùng.
+   - phân quyền người dùng để giới hạn quyền truy cập vào các tính năng khác.
+2. quản lý thông tin nhân viên:
+   - liệt kê danh sách nhân viên công ty với các thông tin như tên, chức vụ, địa chỉ, số điện thoại, email.
+   - thêm, sửa và xóa thông tin nhân viên.
+   - tìm kiếm nhân viên dựa trên các tiêu chí như tên, chức vụ. 
+3. quản lý phòng ban:
+   - liệt kê danh sách các phòng ban trong công ty.
+   - thêm, sửa và xóa thông tin phòng ban.
+4. quản lý vắng mặt và nghỉ phép:
+   - Duyệt đơn nghỉ phép của nhân viên.
+   - Hiển thị danh sách các ngày nghỉ phép và vắng mặt của nhân viên trong lịch làm việc.
+5. dựa trên vắng mặt và nghỉ phép thống kê số lương.
+6. thống kê và báo cáo:
+   - tạo các báo cáo về thông tin nhân viên, phòng ban, lịch làm việc, nghỉ phép.
+   - hiển thị thống kê về số lượng nhân viên theo chức vụ, phòng ban.
+7. choose language
+
+
+
+*PLAN NEXT WEEK:
+1. Hoàn thành giao diện và CRUD 1 số tính năng có trong project.
+2. Cải thiện lại code và update version DB.
+
+
