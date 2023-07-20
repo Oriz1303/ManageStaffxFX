@@ -1,5 +1,37 @@
+.bgWhite{
+    -fx-background-color:#fff;
+}
+.bgBlack{
+ -fx-background-color:#000;
+
+}
+
 .btnExit{
     -fx-background-color:#fff;
     -fx-cursor:hand;
 
 }
+.btnRed{
+      -fx-background-color:#000;
+        -fx-cursor:hand;
+}
+.img{
+  -fx-cursor:hand;
+}
+.img:hover{
+    -fx-opacity:0.73
+}
+
+.background1{
+    -fx-background-color:#1c212e;
+}
+.btnDashboard{
+    -fx-background-color:#1c212e;
+}
+.btnDashboard:hover{
+     -fx-background-color:#ffd134;
+     -fx-text-fill:black;
+ }
+
+
+

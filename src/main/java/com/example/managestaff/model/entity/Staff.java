@@ -1,4 +1,4 @@
-package com.example.managestaff.entity;
+package com.example.managestaff.model.entity;
 
 import lombok.*;
 

@@ -15,10 +15,9 @@ public class App extends Application {
     private double x = 0;
     private double y = 0;
 
-
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("view/dashboard.fxml"));
+//        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("view/login.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("view/login.fxml"));
         Scene scene = new Scene(root);
         root.setOnMousePressed(event -> {
@@ -34,8 +33,8 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
     }
-// note test again
     public static void main(String[] args) {
         launch();
     }
 }
+
