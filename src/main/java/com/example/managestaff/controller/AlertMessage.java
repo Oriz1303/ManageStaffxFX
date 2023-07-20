@@ -4,7 +4,6 @@ import javafx.scene.control.Alert;
 
 public class AlertMessage {
     private Alert alert;
-
     public void errorMessage(String message) {
         alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error Message");

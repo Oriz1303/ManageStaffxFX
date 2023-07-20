@@ -22,4 +22,16 @@
     -fx-opacity:0.73
 }
 
+.background1{
+    -fx-background-color:#1c212e;
+}
+.btnDashboard{
+    -fx-background-color:#1c212e;
+}
+.btnDashboard:hover{
+     -fx-background-color:#ffd134;
+     -fx-text-fill:black;
+ }
+
+
 

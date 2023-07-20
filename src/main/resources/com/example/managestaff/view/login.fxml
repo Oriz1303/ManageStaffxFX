@@ -13,9 +13,9 @@
 <AnchorPane fx:id="loginScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.managestaff.controller.Login">
 
    <children>
-      <ImageView fitHeight="425.0" fitWidth="410.0" layoutX="56.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="395.0" fitWidth="558.0" layoutX="-11.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/images/icons/background7.jpg" />
+            <Image url="@../assets/images/icons/background.jpg" />
          </image>
       </ImageView>
       <AnchorPane layoutX="441.0" prefHeight="617.0" prefWidth="564.0">
@@ -75,8 +75,6 @@
                </graphic>
             </Button>
             <Label fx:id="loginMsg" layoutX="208.0" layoutY="541.0" />
-<!--            <FontAwesomeIcon fill="#e1dbdb" glyphName="USER" layoutX="367.0" layoutY="309.0" size="2em" />-->
-<!--            <FontAwesomeIcon fill="#e1dbdb" glyphName="LOCK" layoutX="368.0" layoutY="366.0" size="2em" text="" />-->
          </children>
       </AnchorPane>
    </children>

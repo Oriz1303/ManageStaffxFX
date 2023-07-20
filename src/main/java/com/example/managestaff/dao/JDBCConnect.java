@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
-
+// mai làm trước cái nút signout rồi up lên để tôi lấy về nha. out ra màn hình đăng nhập.
 public class JDBCConnect {
     public boolean login(String username, String password) {
         String query = "SELECT * FROM account WHERE username = ? AND password = ?;";

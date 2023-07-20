@@ -33,9 +33,9 @@ public class Login {
 
     @FXML
     void onClickedLogin(MouseEvent event) throws Exception {
+        AlertMessage alertMessage = new AlertMessage();
         if (inputUsername.getText().isBlank()) {
             loginMsg.setText("Enter username");
-
         }
 
         if (inputPassword.getText().isBlank()) {
@@ -47,9 +47,9 @@ public class Login {
         JDBCConnect dao = new JDBCConnect();
         boolean flag = dao.login(usernameStr, passwordStr);
         if (flag) {
-            new SwitchScene(loginScene, "view/dashboard.fxml");
+            new SwitchScene(loginScene, "view/admin.fxml");
         } else {
-            AlertMessage alertMessage = new AlertMessage();
+
             alertMessage.errorMessage("Incorrect Username/Passwrod");
         }
     }
