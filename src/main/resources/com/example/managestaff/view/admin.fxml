@@ -56,7 +56,7 @@
                <children>
                   <VBox alignment="CENTER" layoutY="10.0" prefHeight="145.0" prefWidth="266.0" spacing="10.0">
                      <children>
-                        <Button fx:id="btnStudent" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="40.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="DashBoard" textFill="WHITE">
+                        <Button fx:id="btnDBoard" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="40.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="DashBoard" textFill="WHITE">
                            <font>
                               <Font name="Gill Sans MT Bold Italic" size="15.0" />
                            </font>
@@ -71,7 +71,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="btnTeacher" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="37.0" prefWidth="266.0" stylesheets="@../assets/css/style.css" text="Accounts" textFill="WHITE">
+                        <Button fx:id="btnAccounts" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="37.0" prefWidth="266.0" stylesheets="@../assets/css/style.css" text="Accounts" textFill="WHITE">
                            <font>
                               <Font name="Gill Sans MT Bold Italic" size="15.0" />
                            </font>
@@ -90,7 +90,7 @@
                               <String fx:value="h3Btn" />
                            </styleClass>
                         </Button>
-                        <Button fx:id="btnDBoard" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="34.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Staff" textFill="WHITE">
+                        <Button fx:id="btnStaff" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="34.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Staff" textFill="WHITE">
                            <font>
                               <Font name="Gill Sans MT Bold Italic" size="15.0" />
                            </font>
@@ -110,7 +110,7 @@
                   </VBox>
                   <VBox layoutY="178.0" prefHeight="145.0" prefWidth="266.0" spacing="10.0">
                      <children>
-                        <Button fx:id="btnAddAccount" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="44.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="DOM&amp;Room" textFill="WHITE">
+                        <Button fx:id="btnDom" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="44.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="DOM&amp;Room" textFill="WHITE">
                            <font>
                               <Font name="Gill Sans MT Bold Italic" size="15.0" />
                            </font>
@@ -125,7 +125,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="btnSetiing" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="40.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Add Account" textFill="WHITE">
+                        <Button fx:id="btnAddAccount" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="40.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Add Account" textFill="WHITE">
                            <font>
                               <Font name="Gill Sans MT Bold Italic" size="15.0" />
                            </font>
@@ -140,7 +140,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="btnSetiing1" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="37.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Mail" textFill="WHITE">
+                        <Button fx:id="btnMail" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="37.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Mail" textFill="WHITE">
                            <font>
                               <Font name="Gill Sans MT Bold Italic" size="15.0" />
                            </font>
@@ -160,7 +160,7 @@
                   </VBox>
                   <VBox layoutY="352.0" prefHeight="145.0" prefWidth="266.0" spacing="10.0">
                      <children>
-                        <Button fx:id="btnSetiing11" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="28.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Report" textFill="WHITE">
+                        <Button fx:id="btnReport" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="28.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Report" textFill="WHITE">
                            <font>
                               <Font name="Gill Sans MT Bold Italic" size="15.0" />
                            </font>
@@ -175,7 +175,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="btnSetiing111" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="39.0" prefWidth="246.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Setting" textFill="WHITE">
+                        <Button fx:id="btnSetting" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="39.0" prefWidth="246.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Setting" textFill="WHITE">
                            <font>
                               <Font name="Gill Sans MT Bold Italic" size="15.0" />
                            </font>
@@ -190,7 +190,7 @@
                               <Insets left="20.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="btnSetiing1111" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="28.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Sign Out" textFill="WHITE">
+                        <Button fx:id="btnSignOut" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Sign Out" textFill="WHITE">
                            <font>
                               <Font name="Gill Sans MT Bold Italic" size="15.0" />
                            </font>
@@ -213,7 +213,7 @@
       </VBox>
       <StackPane layoutX="283.0" layoutY="353.0">
          <children>
-            <GridPane fx:id="gpStudent" prefHeight="466.0" prefWidth="990.0">
+            <GridPane fx:id="gpDBoad" prefHeight="466.0" prefWidth="990.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -241,7 +241,7 @@
                   </TableView>
                </children>
             </GridPane>
-            <GridPane fx:id="gpTeacher" alignment="CENTER" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;" StackPane.alignment="CENTER">
+            <GridPane fx:id="gpAccounts" alignment="CENTER" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;" StackPane.alignment="CENTER">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -249,7 +249,7 @@
                   <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label alignment="CENTER" prefHeight="73.0" prefWidth="1018.0" text="Accounts">
+                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="Accounts">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -259,7 +259,7 @@
                   </Label>
                </children>
             </GridPane>
-            <GridPane fx:id="gpDBoard" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
+            <GridPane fx:id="gpStaff" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -267,7 +267,7 @@
                   <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label alignment="CENTER" prefHeight="73.0" prefWidth="1018.0" text="Staffs">
+                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="Staff">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -277,7 +277,7 @@
                   </Label>
                </children>
             </GridPane>
-            <GridPane fx:id="gpAddaccunt" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
+            <GridPane fx:id="gpDom" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -285,7 +285,7 @@
                   <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label alignment="CENTER" prefHeight="73.0" prefWidth="1018.0" text="DOM&amp;Room">
+                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="DOM &amp; Room">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -293,36 +293,117 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <GridPane fx:id="gpSeeting" alignment="CENTER" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Label alignment="CENTER" prefHeight="73.0" prefWidth="1018.0" text="Add Account">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets />
-                           </GridPane.margin>
-                        </Label>
-                     </children>
-                  </GridPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="gpAddAccount" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="Add Account">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane fx:id="gpMail" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="Mail">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane fx:id="gpReport" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="Report">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane fx:id="gpSetting" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="Setting">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane fx:id="gpSignOut" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="Sign Out">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
                </children>
             </GridPane>
          </children>
       </StackPane>
-      <Pane fx:id="pntStatus" layoutX="266.0" layoutY="-3.0" prefHeight="108.0" prefWidth="1022.0" style="-fx-background-color: gray;">
+      <Pane fx:id="pntStatus" layoutX="267.0" prefHeight="98.0" prefWidth="1019.0" style="-fx-background-color: #fff;">
          <children>
-            <Label fx:id="lbStatus" layoutX="67.0" layoutY="34.0" prefHeight="40.0" prefWidth="124.0" text="Dashboard">
+            <Label fx:id="lbStatus" layoutX="14.0" layoutY="43.0" prefHeight="40.0" prefWidth="124.0" text="Dashboard">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lbHome" layoutX="75.0" layoutY="14.0" prefHeight="17.0" prefWidth="148.0" text="home/dáhboar" />
+            <Label fx:id="lbHome" layoutX="14.0" layoutY="26.0" prefHeight="17.0" prefWidth="148.0" text="home/dashboard" />
+            <Button layoutX="965.0" layoutY="10.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="48.0" style="-fx-background-color: #fff; -fx-cursor: hand;" stylesheets="@../assets/css/style.css">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/images/icons/icon_close.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </Pane>
    </children>
