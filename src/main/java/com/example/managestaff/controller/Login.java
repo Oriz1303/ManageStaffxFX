@@ -1,10 +1,8 @@
 package com.example.managestaff.controller;
 
-import com.example.managestaff.dao.JDBCConnect;
-import com.example.managestaff.model.SwitchScene;
-import javafx.event.ActionEvent;
+import com.example.managestaff.model.repository.JDBCConnect;
+import com.example.managestaff.model.services.SwitchScene;
 import javafx.fxml.FXML;
-import javafx.scene.AccessibleRole;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;

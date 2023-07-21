@@ -1,4 +1,4 @@
-package com.example.managestaff.model;
+package com.example.managestaff.model.services;
 
 import com.example.managestaff.App;
 import javafx.fxml.FXMLLoader;
