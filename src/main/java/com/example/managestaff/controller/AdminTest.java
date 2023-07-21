@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.net.URL;
 import java.util.Optional;
@@ -152,8 +153,9 @@ public class AdminTest implements Initializable {
         try {
             if (option.get().equals(ButtonType.OK)) {
                 btnSignOut.getScene().getWindow().hide();
-                Parent root = FXMLLoader.load(getClass().getResource("com/example/managestaff/view/login.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/com/example/managestaff/view/login.fxml"));
                 Stage stage = new Stage();
+                stage.initStyle(StageStyle.UNDECORATED);
                 Scene scene = new Scene(root);
                 root.setOnMousePressed(event -> {
                     x = event.getSceneX();
