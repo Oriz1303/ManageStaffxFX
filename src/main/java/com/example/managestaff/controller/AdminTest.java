@@ -23,31 +23,24 @@ import java.util.ResourceBundle;
 public class AdminTest implements Initializable {
 
     @FXML
-    private GridPane gpAccounts;
+    private AnchorPane accountsForm;
+    @FXML
+    private AnchorPane mailForm;
+    @FXML
+    private AnchorPane reportForm;
 
     @FXML
-    private GridPane gpAddAccount;
+    private AnchorPane settingForm;
 
     @FXML
-    private GridPane gpDBoad;
-
+    private AnchorPane staffForm;
     @FXML
-    private GridPane gpDom;
-
+    private AnchorPane domForm;
     @FXML
-    private GridPane gpMail;
-
+    private AnchorPane addAccountForm;
     @FXML
-    private GridPane gpReport;
+    private AnchorPane dboardForm;
 
-    @FXML
-    private GridPane gpSetting;
-
-    @FXML
-    private GridPane gpSignOut;
-
-    @FXML
-    private GridPane gpStaff;
     @FXML
     private Button btnAccounts;
 
@@ -93,47 +86,77 @@ public class AdminTest implements Initializable {
     @FXML
     private void handleClick(ActionEvent event) {
         if (event.getSource() == btnDBoard) {
-            lbHome.setText("Home/DashBoard");
-            lbStatus.setText("DashBoard");
-            pntStatus.setBackground(new Background(new BackgroundFill(Color.rgb(113, 86, 221), CornerRadii.EMPTY, Insets.EMPTY)));
-            gpDBoad.toFront();
+            dboardForm.setVisible(true);
+            accountsForm.setVisible(false);
+            mailForm.setVisible(false);
+            reportForm.setVisible(false);
+            settingForm.setVisible(false);
+            staffForm.setVisible(false);
+            domForm.setVisible(false);
+            addAccountForm.setVisible(false);
         } else if (event.getSource() == btnAccounts) {
-            lbHome.setText("Home/Accounts");
-            lbStatus.setText("Accounts");
-            pntStatus.setBackground(new Background(new BackgroundFill(Color.rgb(43, 63, 99), CornerRadii.EMPTY, Insets.EMPTY)));
-            gpAccounts.toFront();
-
+            accountsForm.setVisible(true);
+            dboardForm.setVisible(false);
+            mailForm.setVisible(false);
+            reportForm.setVisible(false);
+            settingForm.setVisible(false);
+            staffForm.setVisible(false);
+            domForm.setVisible(false);
+            addAccountForm.setVisible(false);
         } else if (event.getSource() == btnStaff) {
-            lbHome.setText("Home/Staff");
-            lbStatus.setText("Staff");
-            pntStatus.setBackground(new Background(new BackgroundFill(Color.rgb(43, 99, 63), CornerRadii.EMPTY, Insets.EMPTY)));
-            gpStaff.toFront();
-
+            staffForm.setVisible(true);
+            dboardForm.setVisible(false);
+            accountsForm.setVisible(false);
+            mailForm.setVisible(false);
+            reportForm.setVisible(false);
+            settingForm.setVisible(false);
+            domForm.setVisible(false);
+            addAccountForm.setVisible(false);
         } else if (event.getSource() == btnDom) {
-            lbHome.setText("Home/DOM & ROOM");
-            lbStatus.setText("Dom and romm");
-            pntStatus.setBackground(new Background(new BackgroundFill(Color.rgb(99, 43, 63), CornerRadii.EMPTY, Insets.EMPTY)));
-            gpDom.toFront();
+            domForm.setVisible(true);
+            dboardForm.setVisible(false);
+            accountsForm.setVisible(false);
+            mailForm.setVisible(false);
+            reportForm.setVisible(false);
+            settingForm.setVisible(false);
+            staffForm.setVisible(false);
+            addAccountForm.setVisible(false);
         } else if (event.getSource() == btnAddAccount) {
-            lbHome.setText("Home/Add Account");
-            lbStatus.setText("Add account");
-            pntStatus.setBackground(new Background(new BackgroundFill(Color.rgb(63, 99, 43), CornerRadii.EMPTY, Insets.EMPTY)));
-            gpAddAccount.toFront();
+            addAccountForm.setVisible(true);
+            dboardForm.setVisible(false);
+            accountsForm.setVisible(false);
+            mailForm.setVisible(false);
+            reportForm.setVisible(false);
+            settingForm.setVisible(false);
+            staffForm.setVisible(false);
+            domForm.setVisible(false);
         } else if (event.getSource() == btnMail) {
-            lbHome.setText("Home/Mail");
-            lbStatus.setText("Mail");
-            pntStatus.setBackground(new Background(new BackgroundFill(Color.rgb(63, 99, 43), CornerRadii.EMPTY, Insets.EMPTY)));
-            gpMail.toFront();
+            mailForm.setVisible(true);
+            addAccountForm.setVisible(false);
+            dboardForm.setVisible(false);
+            accountsForm.setVisible(false);
+            reportForm.setVisible(false);
+            settingForm.setVisible(false);
+            staffForm.setVisible(false);
+            domForm.setVisible(false);
         } else if (event.getSource() == btnReport) {
-            lbHome.setText("Home/Report");
-            lbStatus.setText("Report");
-            pntStatus.setBackground(new Background(new BackgroundFill(Color.rgb(63, 99, 43), CornerRadii.EMPTY, Insets.EMPTY)));
-            gpReport.toFront();
+            reportForm.setVisible(true);
+            addAccountForm.setVisible(false);
+            dboardForm.setVisible(false);
+            accountsForm.setVisible(false);
+            mailForm.setVisible(false);
+            settingForm.setVisible(false);
+            staffForm.setVisible(false);
+            domForm.setVisible(false);
         } else if (event.getSource() == btnSetting) {
-            lbHome.setText("Home/Setting");
-            lbStatus.setText("Setting");
-            pntStatus.setBackground(new Background(new BackgroundFill(Color.rgb(63, 99, 43), CornerRadii.EMPTY, Insets.EMPTY)));
-            gpSetting.toFront();
+            settingForm.setVisible(true);
+            reportForm.setVisible(false);
+            addAccountForm.setVisible(false);
+            dboardForm.setVisible(false);
+            accountsForm.setVisible(false);
+            mailForm.setVisible(false);
+            staffForm.setVisible(false);
+            domForm.setVisible(false);
         }
     }
 

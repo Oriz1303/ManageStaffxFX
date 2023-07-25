@@ -2,33 +2,35 @@
 
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="840.0" prefWidth="1286.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.managestaff.controller.AdminTest">
+<AnchorPane prefHeight="840.0" prefWidth="1368.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.managestaff.controller.AdminTest">
    <children>
-      <VBox prefHeight="840.0" prefWidth="267.0" spacing="10.0" styleClass="background1" stylesheets="@../assets/css/style.css">
+      <VBox prefHeight="848.0" prefWidth="267.0" spacing="10.0" styleClass="backgroundAdmin" stylesheets="@../assets/css/style.css">
          <children>
             <Pane prefHeight="101.0" prefWidth="267.0">
                <children>
-                  <Label layoutX="38.0" layoutY="19.0" prefHeight="61.0" prefWidth="186.0" text="DOManagement" textFill="WHITE">
+                  <Label layoutX="38.0" layoutY="19.0" prefHeight="61.0" prefWidth="193.0" text="DOManagement" textFill="WHITE">
                      <font>
-                        <Font name="Gill Sans MT Bold Italic" size="24.0" />
+                        <Font name="Gill Sans MT Bold" size="24.0" />
                      </font>
                   </Label>
                   <Separator layoutX="-8.0" layoutY="80.0" opacity="0.12" prefHeight="37.0" prefWidth="277.0" />
@@ -36,13 +38,13 @@
             </Pane>
             <AnchorPane prefHeight="88.0" prefWidth="267.0">
                <children>
-                  <Label layoutX="91.0" layoutY="37.0" text="CR7" textFill="#f5f5f5">
+                  <Label layoutX="91.0" layoutY="37.0" text="CR7" textFill="WHITE">
                      <font>
-                        <Font name="Gill Sans MT Bold Italic" size="14.0" />
+                        <Font name="Gill Sans MT Bold" size="14.0" />
                      </font></Label>
-                  <Label layoutX="91.0" layoutY="54.0" text="ADMIN" textFill="#f5f5f5">
+                  <Label layoutX="91.0" layoutY="54.0" text="ADMIN" textFill="WHITE">
                      <font>
-                        <Font name="Gill Sans MT Bold Italic" size="14.0" />
+                        <Font name="Gill Sans MT Bold" size="14.0" />
                      </font></Label>
                   <ImageView fitHeight="51.0" fitWidth="43.0" layoutX="39.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -58,7 +60,7 @@
                      <children>
                         <Button fx:id="btnDBoard" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="40.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="DashBoard" textFill="WHITE">
                            <font>
-                              <Font name="Gill Sans MT Bold Italic" size="15.0" />
+                              <Font name="Gill Sans MT" size="15.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -68,12 +70,15 @@
                               </ImageView>
                            </graphic>
                            <VBox.margin>
-                              <Insets left="20.0" />
+                              <Insets />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
                         </Button>
-                        <Button fx:id="btnAccounts" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="37.0" prefWidth="266.0" stylesheets="@../assets/css/style.css" text="Accounts" textFill="WHITE">
+                        <Button fx:id="btnAccounts" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="37.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Accounts" textFill="WHITE">
                            <font>
-                              <Font name="Gill Sans MT Bold Italic" size="15.0" />
+                              <Font name="Gill Sans MT" size="15.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -83,16 +88,15 @@
                               </ImageView>
                            </graphic>
                            <VBox.margin>
-                              <Insets left="20.0" />
+                              <Insets />
                            </VBox.margin>
-                           <styleClass>
-                              <String fx:value="btnDashboard" />
-                              <String fx:value="h3Btn" />
-                           </styleClass>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
                         </Button>
                         <Button fx:id="btnStaff" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="34.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Staff" textFill="WHITE">
                            <font>
-                              <Font name="Gill Sans MT Bold Italic" size="15.0" />
+                              <Font name="Gill Sans MT" size="15.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -102,8 +106,11 @@
                               </ImageView>
                            </graphic>
                            <VBox.margin>
-                              <Insets left="20.0" />
+                              <Insets />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
                         </Button>
                         <Separator opacity="0.12" prefWidth="200.0" />
                      </children>
@@ -112,7 +119,7 @@
                      <children>
                         <Button fx:id="btnDom" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="44.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="DOM&amp;Room" textFill="WHITE">
                            <font>
-                              <Font name="Gill Sans MT Bold Italic" size="15.0" />
+                              <Font name="Gill Sans MT" size="15.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
@@ -122,12 +129,15 @@
                               </ImageView>
                            </graphic>
                            <VBox.margin>
-                              <Insets left="20.0" />
+                              <Insets />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
                         </Button>
                         <Button fx:id="btnAddAccount" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="40.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Add Account" textFill="WHITE">
                            <font>
-                              <Font name="Gill Sans MT Bold Italic" size="15.0" />
+                              <Font name="Gill Sans MT" size="15.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
@@ -137,12 +147,15 @@
                               </ImageView>
                            </graphic>
                            <VBox.margin>
-                              <Insets left="20.0" />
+                              <Insets />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
                         </Button>
                         <Button fx:id="btnMail" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="37.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Mail" textFill="WHITE">
                            <font>
-                              <Font name="Gill Sans MT Bold Italic" size="15.0" />
+                              <Font name="Gill Sans MT" size="15.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
@@ -152,8 +165,11 @@
                               </ImageView>
                            </graphic>
                            <VBox.margin>
-                              <Insets left="20.0" />
+                              <Insets />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
                         </Button>
                         <Separator opacity="0.12" prefHeight="0.0" prefWidth="113.0" />
                      </children>
@@ -162,7 +178,7 @@
                      <children>
                         <Button fx:id="btnReport" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="28.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Report" textFill="WHITE">
                            <font>
-                              <Font name="Gill Sans MT Bold Italic" size="15.0" />
+                              <Font name="Gill Sans MT" size="15.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
@@ -172,12 +188,15 @@
                               </ImageView>
                            </graphic>
                            <VBox.margin>
-                              <Insets left="20.0" />
+                              <Insets />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
                         </Button>
                         <Button fx:id="btnSetting" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="39.0" prefWidth="246.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Setting" textFill="WHITE">
                            <font>
-                              <Font name="Gill Sans MT Bold Italic" size="15.0" />
+                              <Font name="Gill Sans MT" size="15.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
@@ -187,12 +206,15 @@
                               </ImageView>
                            </graphic>
                            <VBox.margin>
-                              <Insets left="20.0" />
+                              <Insets />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
                         </Button>
                         <Button fx:id="btnSignOut" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Sign Out" textFill="WHITE">
                            <font>
-                              <Font name="Gill Sans MT Bold Italic" size="15.0" />
+                              <Font name="Gill Sans MT" size="15.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
@@ -202,8 +224,11 @@
                               </ImageView>
                            </graphic>
                            <VBox.margin>
-                              <Insets left="20.0" />
+                              <Insets />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
                         </Button>
                      </children>
                   </VBox>
@@ -211,200 +236,419 @@
             </AnchorPane>
          </children>
       </VBox>
-      <StackPane layoutX="283.0" layoutY="353.0">
+      <AnchorPane fx:id="dboardForm" layoutX="267.0" layoutY="-1.0" prefHeight="848.0" prefWidth="1105.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" visible="false">
          <children>
-            <GridPane fx:id="gpDBoad" prefHeight="466.0" prefWidth="990.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+            <AnchorPane prefHeight="848.0" prefWidth="1105.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="990.0">
+                  <Pane fx:id="pntStatus" layoutY="1.0" prefHeight="98.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
                      <children>
-                        <TextField prefHeight="36.0" prefWidth="355.0" />
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="AddStudent" textFill="WHITE" />
+                        <Label fx:id="lbStatus" layoutX="8.0" layoutY="32.0" prefHeight="40.0" prefWidth="124.0" text="Dashboard" textFill="#27518d">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="1070.0" layoutY="8.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="48.0" style="-fx-cursor: hand;" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/icons/icon_close.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
-                  </HBox>
-                  <TableView prefHeight="421.0" prefWidth="990.0" stylesheets="@../assets/css/style.css" GridPane.rowIndex="1">
-                     <columns>
-                        <TableColumn prefWidth="75.0" text="ID" />
-                        <TableColumn prefWidth="75.0" text="first name" />
-                        <TableColumn prefWidth="75.0" text="lastname" />
-                        <TableColumn prefWidth="75.0" text="created at" />
-                     </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
-                  </TableView>
+                  </Pane>
+                  <AnchorPane layoutX="14.0" layoutY="106.0" prefHeight="192.0" prefWidth="1093.0" style="-fx-background-color: #ebf2fc;" stylesheets="@../assets/css/style.css">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="30.0" prefHeight="134.0" prefWidth="246.0" styleClass="card1" stylesheets="@../assets/css/style.css">
+                           <children>
+                              <Label layoutX="31.0" layoutY="54.0" text="188" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="31.0" layoutY="93.0" text="Total Staffs" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="150.0" fitWidth="70.0" layoutX="157.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/icons/icon_staff3.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="287.0" layoutY="30.0" prefHeight="134.0" prefWidth="246.0" styleClass="card2" stylesheets="@../assets/css/style.css">
+                           <children>
+                              <Label layoutX="31.0" layoutY="54.0" text="100" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="31.0" layoutY="93.0" text="Total  Room" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="150.0" fitWidth="59.0" layoutX="164.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/icons/home_1946488.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="560.0" layoutY="30.0" prefHeight="134.0" prefWidth="246.0" styleClass="card3" stylesheets="@../assets/css/style.css">
+                           <children>
+                              <Label layoutX="31.0" layoutY="54.0" text="200" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="31.0" layoutY="93.0" text="Total Slot" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="150.0" fitWidth="53.0" layoutX="174.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/icons/icon_user3.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="831.0" layoutY="30.0" prefHeight="134.0" prefWidth="246.0" styleClass="card4" stylesheets="@../assets/css/style.css">
+                           <children>
+                              <Label layoutX="31.0" layoutY="54.0" text="300" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="31.0" layoutY="93.0" text="Total Report" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="150.0" fitWidth="55.0" layoutX="176.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/icons/icon_report1.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="29.0" layoutY="321.0" prefHeight="513.0" prefWidth="1053.0" stylesheets="@../assets/css/style.css">
+                     <children>
+                        <AreaChart layoutX="15.0" layoutY="10.0" prefHeight="467.0" prefWidth="1016.0" title="Income Data" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="10.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </AreaChart>
+                     </children>
+                     <styleClass>
+                        <String fx:value="bgWhite" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </AnchorPane>
                </children>
-            </GridPane>
-            <GridPane fx:id="gpAccounts" alignment="CENTER" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;" StackPane.alignment="CENTER">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="Accounts">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Label>
-               </children>
-            </GridPane>
-            <GridPane fx:id="gpStaff" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="Staff">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Label>
-               </children>
-            </GridPane>
-            <GridPane fx:id="gpDom" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="DOM &amp; Room">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Label>
-               </children>
-            </GridPane>
-            <GridPane fx:id="gpAddAccount" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="Add Account">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Label>
-               </children>
-            </GridPane>
-            <GridPane fx:id="gpMail" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="Mail">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Label>
-               </children>
-            </GridPane>
-            <GridPane fx:id="gpReport" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="Report">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Label>
-               </children>
-            </GridPane>
-            <GridPane fx:id="gpSetting" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="Setting">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Label>
-               </children>
-            </GridPane>
-            <GridPane fx:id="gpSignOut" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="466.0" prefWidth="990.0" style="-fx-background-color: #fff;">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="426.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="991.0" text="Sign Out">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Label>
-               </children>
-            </GridPane>
+            </AnchorPane>
          </children>
-      </StackPane>
-      <Pane fx:id="pntStatus" layoutX="267.0" prefHeight="98.0" prefWidth="1019.0" style="-fx-background-color: #fff;">
+      </AnchorPane>
+      <AnchorPane fx:id="accountsForm" layoutX="267.0" prefHeight="848.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
          <children>
-            <Label fx:id="lbStatus" layoutX="14.0" layoutY="43.0" prefHeight="40.0" prefWidth="124.0" text="Dashboard">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="lbHome" layoutX="14.0" layoutY="26.0" prefHeight="17.0" prefWidth="148.0" text="home/dashboard" />
-            <Button layoutX="965.0" layoutY="10.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="48.0" style="-fx-background-color: #fff; -fx-cursor: hand;" stylesheets="@../assets/css/style.css">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/images/icons/icon_close.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
+            <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="848.0" prefWidth="1124.0" stylesheets="@../assets/css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane fx:id="pntStatus1" prefHeight="98.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                     <children>
+                        <Label fx:id="lbStatus1" layoutX="8.0" layoutY="32.0" prefHeight="40.0" prefWidth="124.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="Accounts">
+                           <font>
+                              <Font name="Gill Sans MT Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="1070.0" layoutY="8.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="48.0" style="-fx-cursor: hand;" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/icons/icon_close.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <AnchorPane layoutX="14.0" layoutY="128.0" prefHeight="223.0" prefWidth="1093.0" stylesheets="@../assets/css/style.css">
+                     <styleClass>
+                        <String fx:value="bgWhite" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                     <children>
+                        <Label layoutX="78.0" layoutY="32.0" text="Staff ID:">
+                           <font>
+                              <Font name="Gill Sans MT" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="134.0" layoutY="29.0" prefHeight="25.0" prefWidth="43.0" styleClass="textfield" stylesheets="@../assets/css/style.css" />
+                        <Label layoutX="85.0" layoutY="76.0" text="Name:">
+                           <font>
+                              <Font name="Gill Sans MT" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="134.0" layoutY="73.0" prefHeight="25.0" prefWidth="156.0" styleClass="textfield" stylesheets="@../assets/css/style.css" />
+                        <Label layoutX="73.0" layoutY="115.0" text="Address:">
+                           <font>
+                              <Font name="Gill Sans MT" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea layoutX="134.0" layoutY="112.0" prefHeight="87.0" prefWidth="156.0" styleClass="textfield" stylesheets="@../assets/css/style.css" />
+                        <Label layoutX="429.0" layoutY="32.0" text="Phone:">
+                           <font>
+                              <Font name="Gill Sans MT" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="481.0" layoutY="29.0" prefHeight="25.0" prefWidth="156.0" styleClass="textfield" stylesheets="@../assets/css/style.css" />
+                        <Label layoutX="422.0" layoutY="76.0" text="Gender:">
+                           <font>
+                              <Font name="Gill Sans MT" size="16.0" />
+                           </font>
+                        </Label>
+                        <ComboBox layoutX="482.0" layoutY="73.0" prefWidth="150.0" promptText="Choose..." styleClass="textfield" stylesheets="@../assets/css/style.css" />
+                        <Label layoutX="436.0" layoutY="115.0" text="Email:">
+                           <font>
+                              <Font name="Gill Sans MT" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="481.0" layoutY="112.0" prefHeight="25.0" prefWidth="163.0" styleClass="textfield" stylesheets="@../assets/css/style.css" />
+                        <Label layoutX="792.0" layoutY="32.0" text="Dob:">
+                           <font>
+                              <Font name="Gill Sans MT" size="16.0" />
+                           </font>
+                        </Label>
+                        <DatePicker layoutX="830.0" layoutY="29.0" styleClass="textfield" stylesheets="@../assets/css/style.css" />
+                        <Label layoutX="785.0" layoutY="76.0" text="Status:">
+                           <font>
+                              <Font name="Gill Sans MT" size="16.0" />
+                           </font>
+                        </Label>
+                        <ComboBox layoutX="832.0" layoutY="73.0" prefWidth="150.0" promptText="Choose..." styleClass="textfield" stylesheets="@../assets/css/style.css" />
+                        <Button layoutX="836.0" layoutY="125.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="74.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Add" textFill="WHITE">
+                           <font>
+                              <Font name="Gill Sans MT" size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="936.0" layoutY="125.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="74.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Clear" textFill="WHITE">
+                           <font>
+                              <Font name="Gill Sans MT" size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="836.0" layoutY="169.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="74.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Update" textFill="WHITE">
+                           <font>
+                              <Font name="Gill Sans MT" size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="936.0" layoutY="169.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="74.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Delete" textFill="WHITE">
+                           <font>
+                              <Font name="Gill Sans MT" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="14.0" layoutY="407.0" prefHeight="432.0" prefWidth="1093.0" stylesheets="@../assets/css/style.css">
+                     <styleClass>
+                        <String fx:value="bgWhite" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                     <children>
+                        <TableView layoutX="6.0" layoutY="75.0" prefHeight="339.0" prefWidth="1079.0" stylesheets="@../assets/css/style.css">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Staff ID" />
+                            <TableColumn prefWidth="119.0" text="Name" />
+                              <TableColumn prefWidth="170.0" text="Address" />
+                              <TableColumn prefWidth="139.0" text="Phone" />
+                              <TableColumn prefWidth="137.0" text="Gender" />
+                              <TableColumn prefWidth="198.0" text="Email" />
+                              <TableColumn prefWidth="151.0" text="Dob" />
+                              <TableColumn prefWidth="88.0" text="Status" />
+                          </columns>
+                        </TableView>
+                        <HBox alignment="CENTER" layoutX="14.0" layoutY="11.0" opacity="0.77" prefHeight="37.0" prefWidth="239.0" styleClass="search" stylesheets="@../assets/css/style.css">
+                           <children>
+                              <ImageView fitHeight="29.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/icons/icon_search.png" />
+                                 </image>
+                              </ImageView>
+                              <TextField prefHeight="33.0" prefWidth="195.0" promptText="Search" styleClass="tranparent" stylesheets="@../assets/css/style.css" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                  <Separator layoutX="14.0" layoutY="386.0" prefHeight="3.0" prefWidth="1104.0" />
+               </children>
+               <styleClass>
+                  <String fx:value="bgWhite" />
+                  <String fx:value="shadow" />
+               </styleClass>
+            </AnchorPane>
          </children>
-      </Pane>
+      </AnchorPane>
+      <AnchorPane fx:id="staffForm" layoutX="267.0" prefHeight="848.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" visible="false">
+         <children>
+            <AnchorPane layoutY="7.0" prefHeight="848.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane fx:id="pntStatus11" prefHeight="98.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                     <children>
+                        <Label fx:id="lbStatus11" layoutX="8.0" layoutY="32.0" prefHeight="40.0" prefWidth="124.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="Staff">
+                           <font>
+                              <Font name="Gill Sans MT Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="1070.0" layoutY="8.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="48.0" style="-fx-cursor: hand;" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/icons/icon_close.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children></AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="domForm" layoutX="267.0" prefHeight="848.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" visible="false">
+         <children>
+            <AnchorPane layoutX="6.0" prefHeight="848.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane fx:id="pntStatus111" prefHeight="98.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                     <children>
+                        <Label fx:id="lbStatus111" layoutX="8.0" layoutY="32.0" prefHeight="40.0" prefWidth="124.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="DOM">
+                           <font>
+                              <Font name="Gill Sans MT Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="1070.0" layoutY="8.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="48.0" style="-fx-cursor: hand;" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/icons/icon_close.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addAccountForm" layoutX="267.0" prefHeight="848.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" visible="false">
+         <children>
+            <AnchorPane layoutX="35.0" layoutY="24.0" prefHeight="848.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane fx:id="pntStatus1111" prefHeight="98.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                     <children>
+                        <Label fx:id="lbStatus1111" layoutX="8.0" layoutY="32.0" prefHeight="40.0" prefWidth="124.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="Add Account">
+                           <font>
+                              <Font name="Gill Sans MT Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="1070.0" layoutY="8.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="48.0" style="-fx-cursor: hand;" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/icons/icon_close.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="mailForm" layoutX="267.0" layoutY="-1.0" prefHeight="848.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" visible="false">
+         <children>
+            <AnchorPane layoutX="170.0" layoutY="88.0" prefHeight="848.0" prefWidth="1124.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane fx:id="pntStatus11111" prefHeight="98.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                     <children>
+                        <Label fx:id="lbStatus11111" layoutX="8.0" layoutY="32.0" prefHeight="40.0" prefWidth="124.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="Mail">
+                           <font>
+                              <Font name="Gill Sans MT Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="1070.0" layoutY="8.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="48.0" style="-fx-cursor: hand;" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/icons/icon_close.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="reportForm" layoutX="267.0" prefHeight="848.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" visible="false">
+         <children>
+            <AnchorPane layoutX="218.0" layoutY="74.0" prefHeight="848.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane fx:id="pntStatus111111" prefHeight="98.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                     <children>
+                        <Label fx:id="lbStatus111111" layoutX="8.0" layoutY="32.0" prefHeight="40.0" prefWidth="124.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="Report">
+                           <font>
+                              <Font name="Gill Sans MT Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="1070.0" layoutY="8.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="48.0" style="-fx-cursor: hand;" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/icons/icon_close.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="settingForm" layoutX="267.0" prefHeight="848.0" prefWidth="1124.0" visible="false">
+         <children>
+            <AnchorPane layoutX="77.0" layoutY="106.0" prefHeight="848.0" prefWidth="1124.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane fx:id="pntStatus1111111" prefHeight="98.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                     <children>
+                        <Label fx:id="lbStatus1111111" layoutX="8.0" layoutY="32.0" prefHeight="40.0" prefWidth="124.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="Setting">
+                           <font>
+                              <Font name="Gill Sans MT Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="1070.0" layoutY="8.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="48.0" style="-fx-cursor: hand;" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/icons/icon_close.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

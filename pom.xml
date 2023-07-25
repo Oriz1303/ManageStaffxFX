@@ -55,7 +55,7 @@
         <dependency>
             <groupId>de.jensd</groupId>
             <artifactId>fontawesomefx</artifactId>
-            <version>8.9</version>
+            <version>8.2</version>
         </dependency>
 
 
