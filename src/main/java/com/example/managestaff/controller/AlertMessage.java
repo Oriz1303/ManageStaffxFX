@@ -1,6 +1,9 @@
 package com.example.managestaff.controller;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+
+import java.util.Optional;
 
 public class AlertMessage {
     private Alert alert;
@@ -17,5 +20,13 @@ public class AlertMessage {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    } public void confirm(String message) {
+        alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Message");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
+
+
 }
