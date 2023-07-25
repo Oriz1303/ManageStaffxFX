@@ -1,6 +1,6 @@
 package com.example.managestaff.controller;
 
-import com.example.managestaff.model.repository.JDBCConnect;
+import com.example.managestaff.model.repository.StaffModel;
 import com.example.managestaff.model.services.SwitchScene;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -25,7 +25,6 @@ public class Login {
     @FXML
     private TextField inputUsername;
 
-
     @FXML
     private Label loginMsg;
 
@@ -42,8 +41,8 @@ public class Login {
 
         String usernameStr = inputUsername.getText();
         String passwordStr = inputPassword.getText();
-        JDBCConnect dao = new JDBCConnect();
-        boolean flag = dao.login(usernameStr, passwordStr);
+        StaffModel dao = new StaffModel();
+        boolean flag = dao.getOne(usernameStr, passwordStr);
         if (flag) {
             new SwitchScene(loginScene, "view/admin.fxml");
         } else {
