@@ -2,11 +2,11 @@
     -fx-background-color:#ebf2fc;
 }
 .bgBlack{
- -fx-background-color:#000;
+    -fx-background-color:#000;
 
 }
 .labelAdmin{
--fx-text-fill:#27518d;
+    -fx-text-fill:#27518d;
 }
 
 .btnExit{
@@ -15,10 +15,10 @@
 }
 .btnRed{
       -fx-background-color:#000;
-        -fx-cursor:hand;
+      -fx-cursor:hand;
 }
 .img{
-  -fx-cursor:hand;
+     -fx-cursor:hand;
 }
 .img:hover{
     -fx-opacity:0.73
