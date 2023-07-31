@@ -176,14 +176,14 @@
                   </VBox>
                   <VBox layoutY="352.0" prefHeight="145.0" prefWidth="266.0" spacing="10.0">
                      <children>
-                        <Button fx:id="btnReport" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="28.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Info Account" textFill="WHITE">
+                        <Button fx:id="btnReport" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="28.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Account Info" textFill="WHITE">
                            <font>
                               <Font name="Gill Sans MT" size="15.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/images/icons/icon_report.png" />
+                                    <Image url="@../assets/images/icons/info_5880013.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -238,7 +238,7 @@
       </VBox>
       <AnchorPane fx:id="dboardForm" layoutX="267.0" layoutY="-1.0" prefHeight="848.0" prefWidth="1105.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
          <children>
-            <AnchorPane prefHeight="848.0" prefWidth="1105.0">
+            <AnchorPane prefHeight="848.0" prefWidth="1105.0" visible="false">
                <children>
                   <Pane fx:id="pntStatus" layoutY="1.0" prefHeight="98.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
                      <children>
@@ -573,13 +573,13 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="mailForm" layoutX="267.0" layoutY="-1.0" prefHeight="848.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" visible="false">
+      <AnchorPane fx:id="mailForm" layoutX="267.0" layoutY="-1.0" prefHeight="848.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
          <children>
             <AnchorPane layoutX="170.0" layoutY="88.0" prefHeight="848.0" prefWidth="1124.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Pane fx:id="pntStatus11111" prefHeight="98.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
                      <children>
-                        <Label fx:id="lbStatus11111" layoutX="8.0" layoutY="32.0" prefHeight="40.0" prefWidth="124.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="Mail">
+                        <Label fx:id="lbStatus11111" layoutX="8.0" layoutY="32.0" prefHeight="40.0" prefWidth="124.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="Account Info">
                            <font>
                               <Font name="Gill Sans MT Bold" size="18.0" />
                            </font>
@@ -595,6 +595,15 @@
                         </Button>
                      </children>
                   </Pane>
+                  <AnchorPane layoutX="-6.0" layoutY="98.0" prefHeight="747.0" prefWidth="1124.0">
+                     <children>
+                        <ImageView fitHeight="267.0" fitWidth="267.0" layoutX="36.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/images/icons/ronaldo.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children>
