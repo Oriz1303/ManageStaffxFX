@@ -23,60 +23,16 @@ import java.util.ResourceBundle;
 public class AdminTest implements Initializable {
 
     @FXML
-    private AnchorPane accountsForm;
-    @FXML
-    private AnchorPane mailForm;
-    @FXML
-    private AnchorPane reportForm;
-
-    @FXML
-    private AnchorPane settingForm;
-
-    @FXML
-    private AnchorPane staffForm;
-    @FXML
-    private AnchorPane domForm;
-    @FXML
-    private AnchorPane addAccountForm;
-    @FXML
-    private AnchorPane dboardForm;
-
-    @FXML
-    private Button btnAccounts;
-
-    @FXML
-    private Button btnAddAccount;
-
-    @FXML
-    private Button btnDBoard;
-
-    @FXML
-    private Button btnDom;
-
-    @FXML
-    private Button btnMail;
-
-    @FXML
-    private Button btnReport;
-
-    @FXML
-    private Button btnSetting;
-
-    @FXML
-    private Button btnSignOut;
-
-    @FXML
-    private Button btnStaff;
+    private AnchorPane anchorAddAccount, anchorDashBoard, anchorInfo,
+            anchorReport, anchorRoom, anchorSalary,
+            anchorSetting, anchorStaff;
 
 
     @FXML
-    private Label lbHome;
+    private Button btnAccountInfo,btnAddAccount,btnSalary,
+            btnDBoard,btnDom,btnReport,
+            btnSetting,btnSignOut,btnStaff;
 
-    @FXML
-    private Label lbStatus;
-
-    @FXML
-    private Pane pntStatus;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -85,79 +41,15 @@ public class AdminTest implements Initializable {
 
     @FXML
     private void handleClick(ActionEvent event) {
-        if (event.getSource() == btnDBoard) {
-            dboardForm.setVisible(true);
-            accountsForm.setVisible(false);
-            mailForm.setVisible(false);
-            reportForm.setVisible(false);
-            settingForm.setVisible(false);
-            staffForm.setVisible(false);
-            domForm.setVisible(false);
-            addAccountForm.setVisible(false);
-        } else if (event.getSource() == btnAccounts) {
-            accountsForm.setVisible(true);
-            dboardForm.setVisible(false);
-            mailForm.setVisible(false);
-            reportForm.setVisible(false);
-            settingForm.setVisible(false);
-            staffForm.setVisible(false);
-            domForm.setVisible(false);
-            addAccountForm.setVisible(false);
-        } else if (event.getSource() == btnStaff) {
-            staffForm.setVisible(true);
-            dboardForm.setVisible(false);
-            accountsForm.setVisible(false);
-            mailForm.setVisible(false);
-            reportForm.setVisible(false);
-            settingForm.setVisible(false);
-            domForm.setVisible(false);
-            addAccountForm.setVisible(false);
-        } else if (event.getSource() == btnDom) {
-            domForm.setVisible(true);
-            dboardForm.setVisible(false);
-            accountsForm.setVisible(false);
-            mailForm.setVisible(false);
-            reportForm.setVisible(false);
-            settingForm.setVisible(false);
-            staffForm.setVisible(false);
-            addAccountForm.setVisible(false);
-        } else if (event.getSource() == btnAddAccount) {
-            addAccountForm.setVisible(true);
-            dboardForm.setVisible(false);
-            accountsForm.setVisible(false);
-            mailForm.setVisible(false);
-            reportForm.setVisible(false);
-            settingForm.setVisible(false);
-            staffForm.setVisible(false);
-            domForm.setVisible(false);
-        } else if (event.getSource() == btnMail) {
-            mailForm.setVisible(true);
-            addAccountForm.setVisible(false);
-            dboardForm.setVisible(false);
-            accountsForm.setVisible(false);
-            reportForm.setVisible(false);
-            settingForm.setVisible(false);
-            staffForm.setVisible(false);
-            domForm.setVisible(false);
-        } else if (event.getSource() == btnReport) {
-            reportForm.setVisible(true);
-            addAccountForm.setVisible(false);
-            dboardForm.setVisible(false);
-            accountsForm.setVisible(false);
-            mailForm.setVisible(false);
-            settingForm.setVisible(false);
-            staffForm.setVisible(false);
-            domForm.setVisible(false);
-        } else if (event.getSource() == btnSetting) {
-            settingForm.setVisible(true);
-            reportForm.setVisible(false);
-            addAccountForm.setVisible(false);
-            dboardForm.setVisible(false);
-            accountsForm.setVisible(false);
-            mailForm.setVisible(false);
-            staffForm.setVisible(false);
-            domForm.setVisible(false);
-        }
+        anchorDashBoard.setVisible(event.getSource() == btnDBoard);
+        anchorStaff.setVisible(event.getSource() == btnStaff);
+        anchorReport.setVisible(event.getSource() == btnReport);
+        anchorRoom.setVisible(event.getSource() == btnDom);
+        anchorAddAccount.setVisible(event.getSource() == btnAddAccount);
+        anchorSalary.setVisible(event.getSource() == btnSalary);
+        anchorInfo.setVisible(event.getSource() == btnAccountInfo);
+        anchorSetting.setVisible(event.getSource() == btnSetting);
+
     }
 
     public void exit() {

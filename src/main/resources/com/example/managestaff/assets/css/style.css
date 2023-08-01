@@ -26,6 +26,7 @@
 
 .backgroundAdmin{
     -fx-background-color:#06367a;
+    -fx-background-radius: 0 20 20 0;
 }
 .btnDashboard{
     -fx-background-color:#06367a;
@@ -73,8 +74,6 @@
 .tranparent{
     -fx-background-color:rgba(0,0,0,0)
 }
-
-
 
 .table-view{
     -fx-background-color:transparent;

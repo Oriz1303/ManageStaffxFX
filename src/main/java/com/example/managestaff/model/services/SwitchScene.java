@@ -14,4 +14,5 @@ public class SwitchScene {
         anchorPane.getChildren().clear();
         anchorPane.getChildren().setAll(nextAnchorPane);
     }
+
 }
