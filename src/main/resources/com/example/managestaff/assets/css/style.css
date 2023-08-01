@@ -35,6 +35,11 @@
      -fx-background-color:#00275c;
     /* -fx-text-fill:black;*/
      }
+.carDB{
+        -fx-background-color:#ffff;
+        -fx-effect:dropshadow(three-pass-box,rgba(0,0,0,0.5),8,0,0,0);
+       -fx-background-radius:10px;
+}
 .card1{
     -fx-background-color:#6663fe;
     -fx-background-radius:10px;
