@@ -1,13 +1,13 @@
 package com.example.managestaff.model.repository;
 
 import com.example.managestaff.model.dao.JDBCConnect;
+import com.example.managestaff.model.entity.Staff;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
 
-// mai làm trước cái nút signout rồi up lên để tôi lấy về nha. out ra màn hình đăng nhập.
 public class StaffModel {
     public boolean getOne(String username, String password) {
         String query = "SELECT * FROM account WHERE username = ? AND password = ?;";
@@ -27,27 +27,67 @@ public class StaffModel {
         return false;
     }
 
+    public ObservableList<Staff> addStaff() {
+        ObservableList<Staff> listData = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM staff";
+        Properties properties = new JDBCConnect().dbConfig();
+        try (Connection connect = JDBCConnect.getConnection(properties);
+             PreparedStatement ps = connect.prepareStatement(sql);
+             ResultSet resultSet = ps.executeQuery();
+        ) {
+            Staff staff;
+            while (resultSet.next()) {
+                staff = new Staff(resultSet.getInt("id"), resultSet.getString("fullname"),
+                        resultSet.getInt("gender"), resultSet.getDate("dob"),
+                        resultSet.getString("phoneNumber"), resultSet.getString("email"),
+                        resultSet.getInt("department_id"), resultSet.getInt("position_id"),
+                        resultSet.getString("status"), resultSet.getString("imgUrl"));
+                listData.add(staff);
+            }
+            return listData;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
+    public ObservableList<String> getFullnames() {
+        ObservableList<String> listData = FXCollections.observableArrayList();
+        String sql = "SELECT id, fullname FROM staff ORDER BY id DESC LIMIT 4";
+        Properties properties = new JDBCConnect().dbConfig();
+        try (Connection connect = JDBCConnect.getConnection(properties);
+             PreparedStatement ps = connect.prepareStatement(sql);
+             ResultSet resultSet = ps.executeQuery();
+        ) {
+            while (resultSet.next()) {
+                String fullname = resultSet.getString("fullname");
+                listData.add(fullname);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listData;
+    }
+
+    public int getAll() {
+        String sql = "SELECT COUNT(id) FROM staff ";
+        Properties properties = new JDBCConnect().dbConfig();
+
+        try (Connection connect = JDBCConnect.getConnection(properties);
+             PreparedStatement ps = connect.prepareStatement(sql);
+        ) {
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                return resultSet.getInt("COUNT(id)");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }
 
 
-//
-//    public static Connection getConnection(Properties properties) throws SQLException {
-//        String dbUrl = properties.getProperty("DB_URL");
-//        String dbUsername = properties.getProperty("DB_USERNAME");
-//        String dbPassword = properties.getProperty("DB_PASSWORD");
-//        return DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-//    }
-//
-//    public static void executeQuery(Properties properties, String query) {
-//        try (Connection connect = getConnection(properties);
-//             PreparedStatement ps = connect.prepareStatement(query)
-//        ) {
-//            // Execute your query or do something with the prepared statement here
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
 
 

@@ -44,9 +44,8 @@ public class Login {
         StaffModel dao = new StaffModel();
         boolean flag = dao.getOne(usernameStr, passwordStr);
         if (flag) {
-            new SwitchScene(loginScene, "view/admin.fxml");
+            new SwitchScene(loginScene, "/com/example/managestaff/view/admin.fxml");
         } else {
-
             alertMessage.errorMessage("Incorrect Username/Passwrod");
         }
     }

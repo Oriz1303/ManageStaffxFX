@@ -35,6 +35,8 @@
      -fx-background-color:#00275c;
     /* -fx-text-fill:black;*/
      }
+
+
 .carDB{
         -fx-background-color:#ffff;
         -fx-effect:dropshadow(three-pass-box,rgba(0,0,0,0.5),8,0,0,0);
@@ -84,7 +86,7 @@
     -fx-background-color:transparent;
    -fx-border-color:linear-gradient(to top right,#2c2c57,#392b78);
    -fx-border-radius:8px;
-   -fx-border-width:2px
+   -fx-border-width:2px;
    -fx-padding:0px;
 }
 .table-view .table-column{
