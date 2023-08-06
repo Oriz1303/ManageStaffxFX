@@ -1,3 +1,4 @@
+
 package com.example.managestaff.model.repository;
 
 import com.example.managestaff.model.dao.JDBCConnect;
@@ -5,8 +6,6 @@ import com.example.managestaff.model.entity.Staff;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Properties;
@@ -29,6 +28,43 @@ public class StaffModel {
         }
         return false;
     }
+
+    // Handle DashBoard Page
+    public ObservableList<String> getFullnames() {
+        ObservableList<String> listData = FXCollections.observableArrayList();
+        String sql = "SELECT id, fullname FROM staff ORDER BY id DESC LIMIT 4";
+        Properties properties = new JDBCConnect().dbConfig();
+        try (Connection connect = JDBCConnect.getConnection(properties);
+             PreparedStatement ps = connect.prepareStatement(sql);
+             ResultSet resultSet = ps.executeQuery();
+        ) {
+            while (resultSet.next()) {
+                String fullname = resultSet.getString("fullname");
+                listData.add(fullname);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listData;
+    }
+
+    public int getToTalStaff() {
+        String sql = "SELECT COUNT(id) FROM staff ";
+        Properties properties = new JDBCConnect().dbConfig();
+
+        try (Connection connect = JDBCConnect.getConnection(properties);
+             PreparedStatement ps = connect.prepareStatement(sql);
+        ) {
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                return resultSet.getInt("COUNT(id)");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 
     public static boolean add(Staff staff) {
         String insertStaff = "INSERT INTO staff ( " +
@@ -83,13 +119,5 @@ public class StaffModel {
         }
         return null;
     }
-
-
 }
-
-
-
-
-
-
 
