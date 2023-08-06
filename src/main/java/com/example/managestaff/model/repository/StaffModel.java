@@ -57,7 +57,6 @@ public class StaffModel {
         return false;
     }
 
-
     public ObservableList<Staff> getAll() {
         ObservableList<Staff> staffList = FXCollections.observableArrayList();
         String sql = "SELECT * FROM staff";
