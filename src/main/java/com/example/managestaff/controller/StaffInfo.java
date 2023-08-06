@@ -29,7 +29,7 @@ public class StaffInfo implements Initializable {
     private Label staffInfo_dob, staffInfo_fullName, staffInfo_staffId, staffInfo_status;
 
     public void showInfoStaff() {
-        showInfoStaff = dao.addStaff();
+//        showInfoStaff = dao.addStaff();
     }
 
     @Override

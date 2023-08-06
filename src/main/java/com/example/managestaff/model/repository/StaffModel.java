@@ -1,3 +1,4 @@
+
 package com.example.managestaff.model.repository;
 
 import com.example.managestaff.model.dao.JDBCConnect;
@@ -6,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.Properties;
 
 public class StaffModel {
@@ -27,30 +29,7 @@ public class StaffModel {
         return false;
     }
 
-    public ObservableList<Staff> addStaff() {
-        ObservableList<Staff> listData = FXCollections.observableArrayList();
-        String sql = "SELECT * FROM staff";
-        Properties properties = new JDBCConnect().dbConfig();
-        try (Connection connect = JDBCConnect.getConnection(properties);
-             PreparedStatement ps = connect.prepareStatement(sql);
-             ResultSet resultSet = ps.executeQuery();
-        ) {
-            Staff staff;
-            while (resultSet.next()) {
-                staff = new Staff(resultSet.getInt("id"), resultSet.getString("fullname"),
-                        resultSet.getInt("gender"), resultSet.getDate("dob"),
-                        resultSet.getString("phoneNumber"), resultSet.getString("email"),
-                        resultSet.getInt("department_id"), resultSet.getInt("position_id"),
-                        resultSet.getString("status"), resultSet.getString("imgUrl"));
-                listData.add(staff);
-            }
-            return listData;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
+    // Handle DashBoard Page
     public ObservableList<String> getFullnames() {
         ObservableList<String> listData = FXCollections.observableArrayList();
         String sql = "SELECT id, fullname FROM staff ORDER BY id DESC LIMIT 4";
@@ -69,7 +48,7 @@ public class StaffModel {
         return listData;
     }
 
-    public int getAll() {
+    public int getToTalStaff() {
         String sql = "SELECT COUNT(id) FROM staff ";
         Properties properties = new JDBCConnect().dbConfig();
 
@@ -85,12 +64,61 @@ public class StaffModel {
         }
         return 0;
     }
+
+
+    public static boolean add(Staff staff) {
+        String insertStaff = "INSERT INTO staff ( " +
+                "fullname, gender, dob, phoneNumber, email, " +
+                "department_id, position_id, imgUrl,id, status)" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 1)";
+
+        Properties properties = new JDBCConnect().dbConfig();
+        try (Connection connect = JDBCConnect.getConnection(properties);
+             PreparedStatement ps = connect.prepareStatement(insertStaff)) {
+            ps.setString(1, staff.getName());
+            ps.setInt(2, staff.getGender());
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            ps.setDate(3, staff.getDob());
+            ps.setString(4, staff.getPhoneNumber());
+            ps.setString(5, staff.getEmail());
+            ps.setInt(6, staff.getDepartmentId());
+            ps.setInt(7, staff.getPositionId());
+            ps.setString(8, staff.getUrlPortrait());
+            ps.setInt(9, staff.getId());
+            ps.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
+    public ObservableList<Staff> getAll() {
+        ObservableList<Staff> staffList = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM staff";
+        Properties properties = new JDBCConnect().dbConfig();
+        try (Connection connect = JDBCConnect.getConnection(properties);
+             PreparedStatement ps = connect.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery();) {
+            while (rs.next()) {
+                System.out.println(1);
+                Staff staff = new Staff();
+                staff.setId(rs.getInt("id"));
+                staff.setName(rs.getString("fullname"));
+                staff.setGender(rs.getInt("gender"));
+                staff.setDob(rs.getDate("dob"));
+                staff.setPhoneNumber(rs.getString("phoneNumber"));
+                staff.setEmail(rs.getString("email"));
+                staff.setDepartmentId(rs.getInt("department_id"));
+                staff.setPositionId(rs.getInt("position_id"));
+                staffList.add(staff);
+            }
+            return staffList;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
-
-
-
-
-
-
-
 
