@@ -1,7 +1,6 @@
 package com.example.managestaff.model.services;
 
 
-
 public class Pagination {
 
 //    TableView<MyData> tableView = new TableView<>();
@@ -38,10 +37,6 @@ public class Pagination {
 //    Scene scene = new Scene(root);
 //primaryStage.setScene(scene);
 //primaryStage.show();
-
-
-
-
 
 
 }

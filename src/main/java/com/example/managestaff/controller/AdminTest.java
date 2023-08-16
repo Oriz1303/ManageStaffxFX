@@ -246,9 +246,10 @@ public class AdminTest implements Initializable {
 
 
     private void loadData() {
-//        ObservableArray<Staff> dataList = FXCollections.observableArrayList();
+        ObservableList<Staff> dataList = FXCollections.observableArrayList();
         final int itemsPerPage = 5;
-        final int totalPages = 1;
+        final int totalPages = (dataList.size() / itemsPerPage) + 1;
+        paginationStaff.setPageCount(totalPages);
         listStaff = new StaffModel().getAll();
 //        colId = new TableColumn<>("id");
 //        colId.setCellValueFactory(param -> param.getValue().getId() );

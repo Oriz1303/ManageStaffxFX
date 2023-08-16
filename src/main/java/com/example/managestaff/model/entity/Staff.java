@@ -8,7 +8,7 @@ import java.sql.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Staff implements ObservableArray<Staff> {
+public class Staff {
     private int id;
     private String name;
     private int gender;
