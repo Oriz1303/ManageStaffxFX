@@ -1,0 +1,5 @@
+.backgroundLogin {
+
+    -fx-background-image: url('../images/img_staff/employee_benefits.jpg');
+    -fx-background-size: 1000 650;
+}

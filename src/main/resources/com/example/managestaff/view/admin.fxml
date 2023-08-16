@@ -921,15 +921,15 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorInfo" layoutX="267.0" prefHeight="848.0" prefWidth="1137.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" visible="false">
+      <AnchorPane fx:id="anchorInfo" layoutX="267.0" prefHeight="848.0" prefWidth="1137.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
          <children>
             <AnchorPane layoutX="218.0" layoutY="74.0" prefHeight="848.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Pane fx:id="paneAccountInfo" prefHeight="98.0" prefWidth="1138.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
                      <children>
-                        <Label layoutX="8.0" layoutY="32.0" prefHeight="40.0" prefWidth="124.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="Account Info">
+                        <Label layoutX="56.0" layoutY="21.0" prefHeight="56.0" prefWidth="305.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="Account Info">
                            <font>
-                              <Font name="Gill Sans MT Bold" size="18.0" />
+                              <Font name="Gill Sans MT Bold" size="45.0" />
                            </font>
                         </Label>
                         <Button layoutX="1089.0" layoutY="7.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="48.0" style="-fx-cursor: hand;" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
@@ -943,6 +943,207 @@
                         </Button>
                      </children>
                   </Pane>
+                  <ImageView fitHeight="741.0" fitWidth="1157.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/images/img_staff/background_profile3.jpg" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane layoutX="56.0" layoutY="151.0" prefHeight="306.0" prefWidth="257.0">
+                     <children>
+                        <ImageView fitHeight="200.0" fitWidth="230.0" layoutX="25.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/images/img_staff/Picture1.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="67.0" layoutY="227.0" prefHeight="34.0" prefWidth="124.0" text="Administrator">
+                           <font>
+                              <Font name="Gill Sans MT Bold Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="84.0" layoutY="261.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="88.0" stylesheets="@../assets/css/profile.css" text="Edit Avatar" textFill="WHITE">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="777.0" layoutY="131.0" prefHeight="291.0" prefWidth="319.0">
+                     <children>
+                        <Label layoutX="34.0" layoutY="23.0" prefHeight="45.0" prefWidth="138.0" text="Staff Info">
+                           <font>
+                              <Font name="Gill Sans MT Bold Italic" size="30.0" />
+                           </font>
+                        </Label>
+                        <GridPane layoutX="30.0" layoutY="92.0" prefHeight="174.0" prefWidth="259.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="123.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="136.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Staff Id :">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="staff_id" prefHeight="30.0" prefWidth="28.0" text="1" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Username :" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="info_username" prefHeight="24.0" prefWidth="114.0" text="Admin" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Creat Date : " GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="24.0" prefWidth="106.0" text="01/01/2023" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Status : " GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="status" prefHeight="24.0" prefWidth="115.0" text="Active" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <Label layoutX="157.0" layoutY="190.0">
+                           <font>
+                              <Font name="Gill Sans MT" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="361.0" layoutY="124.0" prefHeight="484.0" prefWidth="398.0">
+                     <children>
+                        <Label layoutX="23.0" layoutY="33.0" />
+                        <Label layoutX="32.0" layoutY="29.0" prefHeight="45.0" prefWidth="193.0" text="Person Info">
+                           <font>
+                              <Font name="Gill Sans MT Bold Italic" size="30.0" />
+                           </font>
+                        </Label>
+                        <GridPane layoutX="31.0" layoutY="102.0" prefHeight="345.0" prefWidth="337.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Fullname : ">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="fullname" prefHeight="24.0" prefWidth="160.0" text="Nguyen Van A" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Gender : " GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="infoGender" prefHeight="24.0" prefWidth="50.0" text="Nam" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Dob : " GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="dob" prefHeight="24.0" prefWidth="108.0" text="10/10/2000" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Phone : " GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="phone" text="0987654321" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Email : " GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="email" text="nva@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Address : " GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="address" text="Ha Noi" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Position : " GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="prosition" text="Intern" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Department : " GridPane.rowIndex="7">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="department" text="HR" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <Button layoutX="809.0" layoutY="442.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="206.0" stylesheets="@../assets/css/profile.css" text="Edit Profile" textFill="WHITE" />
                </children>
             </AnchorPane>
          </children>

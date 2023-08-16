@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -12,70 +12,46 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.managestaff.controller.Login">
+<AnchorPane fx:id="loginScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #fff;" styleClass="backgroundLogin" stylesheets="@../assets/css/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.managestaff.controller.Login">
 
    <children>
-      <ImageView fitHeight="395.0" fitWidth="558.0" layoutX="-11.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/images/icons/background.jpg" />
-         </image>
-      </ImageView>
-      <AnchorPane layoutX="436.0" layoutY="6.0" prefHeight="617.0" prefWidth="564.0">
+      <AnchorPane fx:id="background_img" layoutX="561.0" layoutY="87.0" prefHeight="444.0" prefWidth="402.0" style="-fx-background-color: white;" styleClass="font-cart1" stylesheets="@../assets/css/profile.css">
          <children>
-            <TextField fx:id="inputUsername" layoutX="127.0" layoutY="281.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="277.0" promptText="Username" style="-fx-border-color: #E1E1E1; -fx-background-color: tranparent; -fx-border-radius: 50;">
-               <padding>
-                  <Insets left="15.0" />
-               </padding></TextField>
-            <PasswordField fx:id="inputPassword" layoutX="127.0" layoutY="339.0" prefHeight="39.0" prefWidth="277.0" promptText="Password" style="-fx-border-color: #E1E1E1; -fx-background-color: tranparent; -fx-border-radius: 50;">
-               <padding>
-                  <Insets left="15.0" />
-               </padding></PasswordField>
-            <Label layoutX="164.0" layoutY="228.0" text="Access your account" textAlignment="CENTER">
+            <Label layoutX="124.0" layoutY="38.0" text="Sign in your account">
                <font>
-                  <Font name="Gill Sans MT" size="24.0" />
+                  <Font size="17.0" />
                </font>
             </Label>
-            <Label layoutX="197.0" layoutY="197.0" text="Welcome" textAlignment="CENTER">
+            <Label layoutX="67.0" layoutY="103.0" text="Username">
                <font>
-                  <Font name="Gill Sans MT Bold" size="27.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <CheckBox layoutX="127.0" layoutY="392.0" mnemonicParsing="false" text="ShowPasswssord">
+            <TextField fx:id="inputUsername" layoutX="69.0" layoutY="126.0" prefHeight="26.0" prefWidth="265.0" promptText="username" styleClass="input" stylesheets="@../assets/css/profile.css" />
+            <Label layoutX="66.0" layoutY="164.0" text="Password">
                <font>
-                  <Font name="Gill Sans MT" size="14.0" />
-               </font>
-            </CheckBox>
-            <Button fx:id="btnLogin" layoutX="127.0" layoutY="443.0" mnemonicParsing="false" onMouseClicked="#onClickedLogin" prefHeight="46.0" prefWidth="277.0" style="-fx-background-color: black; -fx-background-radius: 50;" text="Login" textFill="WHITE">
-               <font>
-                  <Font name="Gill Sans MT" size="18.0" />
-               </font>
-            </Button>
-            <Label layoutX="306.0" layoutY="394.0" text="ForgotPassword?" textFill="#156eda">
-               <font>
-                  <Font name="Gill Sans MT" size="14.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <ImageView fitHeight="175.0" fitWidth="173.0" layoutX="179.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: red;">
-               <image>
-                  <Image url="@../assets/images/icons/logo1.jpg" />
-               </image>
-            </ImageView>
-            <Button layoutX="499.0" layoutY="7.0" mnemonicParsing="false" onAction="#exit" prefHeight="39.0" prefWidth="40.0" styleClass="btnExit" stylesheets="@../assets/css/style.css">
+            <TextField fx:id="inputPassword_show" layoutX="68.0" layoutY="187.0" prefHeight="26.0" prefWidth="265.0" styleClass="input" />
+            <PasswordField fx:id="inputPassword" layoutX="68.0" layoutY="187.0" prefHeight="26.0" prefWidth="266.0" promptText="password" styleClass="input" />
+            <FontAwesomeIcon fill="#767676" glyphName="USER" layoutX="314.0" layoutY="144.0" size="1.2em" text="" />
+            <FontAwesomeIcon fill="#767676" glyphName="LOCK" layoutX="315.0" layoutY="205.0" size="1.2em" />
+            <CheckBox layoutX="65.0" layoutY="229.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="96.0" text="Remember" />
+            <Button fx:id="btnLogin" layoutX="80.0" layoutY="313.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="240.0" text="Login" textFill="#f7f7f7" />
+            <Hyperlink layoutX="238.0" layoutY="224.0" text="Forgot Password" />
+            <Label layoutX="143.0" text="Welcome">
                <font>
-                  <Font size="24.0" />
+                  <Font name="System Bold" size="26.0" />
                </font>
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/images/icons/icon_close1.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Label fx:id="loginMsg" layoutX="208.0" layoutY="541.0" />
-            <FontAwesomeIcon fill="#c6c0c0" glyphName="USER" layoutX="376.0" layoutY="307.0" size="1.7em" />
-            <FontAwesomeIcon fill="#c6c0c0" glyphName="LOCK" layoutX="378.0" layoutY="365.0" size="1.7em" />
+            </Label>
          </children>
       </AnchorPane>
+      <Label layoutX="925.0" layoutY="2.0" prefHeight="70.0" prefWidth="71.0" styleClass="font-cart1" stylesheets="@../assets/css/profile.css" />
+      <ImageView fitHeight="14.0" fitWidth="11.0" layoutX="980.0" layoutY="8.0" onDragDetected="#exit" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/icons/icon_close1.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

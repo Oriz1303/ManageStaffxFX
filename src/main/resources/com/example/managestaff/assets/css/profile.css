@@ -1,0 +1,13 @@
+.button {
+     -fx-background-color: #266fd5;
+     -fx-background-radius: 30px;
+ }
+.font-cart1{
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+}
+.input{
+    -fx-background-color:  tranperer;
+    -fx-border-color:  #27518d;
+    -fx-border-width: 0 0 1 0;
+}
