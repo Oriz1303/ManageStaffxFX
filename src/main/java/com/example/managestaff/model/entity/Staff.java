@@ -1,5 +1,6 @@
 package com.example.managestaff.model.entity;
 
+import javafx.collections.ObservableArray;
 import lombok.*;
 
 import java.sql.Date;
@@ -7,7 +8,7 @@ import java.sql.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Staff {
+public class Staff implements ObservableArray<Staff> {
     private int id;
     private String name;
     private int gender;

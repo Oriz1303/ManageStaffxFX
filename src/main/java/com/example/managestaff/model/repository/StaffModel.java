@@ -101,7 +101,7 @@ public class StaffModel {
              PreparedStatement ps = connect.prepareStatement(sql);
              ResultSet rs = ps.executeQuery();) {
             while (rs.next()) {
-                System.out.println(1);
+
                 Staff staff = new Staff();
                 staff.setId(rs.getInt("id"));
                 staff.setName(rs.getString("fullname"));

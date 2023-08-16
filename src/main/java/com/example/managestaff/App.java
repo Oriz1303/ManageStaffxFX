@@ -20,14 +20,14 @@ public class App extends Application {
 //        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("view/login.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("view/admin.fxml"));
         Scene scene = new Scene(root);
-//        root.setOnMousePressed(event -> {
-//            x = event.getSceneX();
-//            y = event.getSceneY();
-//        });
-//        root.setOnMouseDragged(event -> {
-//            stage.setX(event.getScreenX() - x);
-//            stage.setY(event.getScreenY() - y);
-//        });
+        root.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+        });
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("Manage Staff");
         stage.setScene(scene);

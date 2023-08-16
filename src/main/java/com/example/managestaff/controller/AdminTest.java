@@ -2,6 +2,8 @@ package com.example.managestaff.controller;
 
 import com.example.managestaff.model.entity.Staff;
 import com.example.managestaff.model.repository.StaffModel;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -11,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -86,8 +89,22 @@ public class AdminTest implements Initializable {
     StaffModel dao = new StaffModel();
     AlertMessage alert = new AlertMessage();
 
+    private final static int rowsPerpage = 15;
+
+    private Node createPage(int pageIndex) {
+        listStaff = new StaffModel().getAll();
+        int fromIndex = pageIndex * rowsPerpage;
+        int toIndex = Math.min(fromIndex + rowsPerpage, listStaff.size());
+        viewDataStaff.setItems(FXCollections.observableArrayList(listStaff.subList(fromIndex, toIndex)));
+        return viewDataStaff;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        // Pagination start
+//    paginationStaff.setPageFactory(this::createPage);
+        // Pagination end
 
         getTotalStaff();
         showInfoInLabels();
@@ -227,8 +244,14 @@ public class AdminTest implements Initializable {
         }
     }
 
+
     private void loadData() {
+//        ObservableArray<Staff> dataList = FXCollections.observableArrayList();
+        final int itemsPerPage = 5;
+        final int totalPages = 1;
         listStaff = new StaffModel().getAll();
+//        colId = new TableColumn<>("id");
+//        colId.setCellValueFactory(param -> param.getValue().getId() );
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colPhone.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
