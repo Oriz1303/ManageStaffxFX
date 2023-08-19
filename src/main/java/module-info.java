@@ -10,5 +10,4 @@ module com.example.managestaff {
     exports com.example.managestaff;
     exports com.example.managestaff.controller;
     opens com.example.managestaff.controller to javafx.fxml;
-
 }

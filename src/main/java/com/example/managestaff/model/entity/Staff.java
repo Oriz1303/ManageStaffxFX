@@ -1,5 +1,6 @@
 package com.example.managestaff.model.entity;
 
+import javafx.collections.ObservableArray;
 import lombok.*;
 
 import java.sql.Date;
