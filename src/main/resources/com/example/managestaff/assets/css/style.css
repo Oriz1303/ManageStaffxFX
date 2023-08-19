@@ -1,9 +1,15 @@
 .bgWhite{
-    -fx-background-color:#ebf2fc;
+    -fx-background-color:#eff2f6;
 }
-
 .bgPrimary{
     -fx-background-color:#fff;
+    -fx-background-radius:20px;
+}
+
+.bgWhite1{
+    -fx-background-color:#fff;
+    -fx-background-radius:20px;
+
 }
 
 .bgBlack{
@@ -34,7 +40,7 @@
 
 .backgroundAdmin{
     -fx-background-color:#06367a;
-    -fx-background-radius: 0 20 20 0;
+    -fx-background-radius: 0 20 0 0;
 }
 
 
@@ -44,8 +50,7 @@
 
 
 .btnDashboard:hover{
-     -fx-background-color:#00275c;
-    /* -fx-text-fill:black;*/
+     -fx-background-color:#0560fd;
      }
 
 
@@ -57,25 +62,25 @@
 
 
 .card1{
-    -fx-background-color:#6663fe;
+    -fx-background-color:#fff;
     -fx-background-radius:10px;
 }
 
 
 .card2{
-    -fx-background-color:#00a0b6;
+    -fx-background-color:#fff;
     -fx-background-radius:10px;
 }
 
 
 .card3{
-    -fx-background-color:#e06c9f;
+    -fx-background-color:#fff;
     -fx-background-radius:10px;
 }
 
 
 .card4{
-    -fx-background-color:#266fd5;
+    -fx-background-color:#fff;
     -fx-background-radius:10px;
 }
 
@@ -135,11 +140,15 @@
 
 
 .table-view{
+    -fx-font-size:14px;
     -fx-background-color:transparent;
    -fx-border-color:linear-gradient(to top right,#2c82fb,#2c82fb);
    -fx-border-radius:8px;
    -fx-border-width:2px;
    -fx-padding:0px;
+}
+.table-row-cell {
+    -fx-cell-size: 50px;
 }
 
 
@@ -163,7 +172,39 @@
 .table-view .column-header .label{
     -fx-text-fill:#fff;
     -fx-font-family:Arial;
-    -fx-font-size:14px
+    -fx-font-size:18px
 }
 
+ ./* Remove spacing */
+  .pagination > .pagination-control > .control-box {
+      -fx-spacing: 0;
+  }
+
+  /* You can control the actual button sizes here */
+  .pagination > .pagination-control > .control-box > .number-button,
+  .pagination > .pagination-control > .control-box > .bullet-button,
+  .pagination > .pagination-control > .control-box > .left-arrow-button,
+  .pagination > .pagination-control > .control-box > .right-arrow-button {
+      -fx-background-insets: 0, 1;
+          -fx-background-color: lightgray, #FAFAFA;
+      -fx-min-width: 30;
+      -fx-min-height: 30;
+  }
+
+  /* Colors on hover */
+  .pagination > .pagination-control > .control-box > .number-button:hover,
+  .pagination > .pagination-control > .control-box > .bullet-button:hover,
+  .pagination > .pagination-control > .control-box > .left-arrow-button:hover,
+  .pagination > .pagination-control > .control-box > .right-arrow-button:hover {
+      -fx-background-insets: 0;
+      -fx-background-color: #2c82fb;
+  }
+
+  /* Selected toggle color */
+  .pagination > .pagination-control > .control-box > .number-button:selected,
+  .pagination > .pagination-control > .control-box > .bullet-button:selected{
+      -fx-background-insets: 0;
+      -fx-background-color: #2c82fb;
+      -fx-text-fill: white;
+  }
 

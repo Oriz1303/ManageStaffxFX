@@ -32,7 +32,7 @@ public class StaffModel {
     // Handle DashBoard Page
     public ObservableList<String> getFullnames() {
         ObservableList<String> listData = FXCollections.observableArrayList();
-        String sql = "SELECT id, fullname FROM staff ORDER BY id DESC LIMIT 4";
+        String sql = "SELECT id, fullname ,email FROM staff ORDER BY id DESC LIMIT 6";
         Properties properties = new JDBCConnect().dbConfig();
         try (Connection connect = JDBCConnect.getConnection(properties);
              PreparedStatement ps = connect.prepareStatement(sql);
@@ -40,7 +40,11 @@ public class StaffModel {
         ) {
             while (resultSet.next()) {
                 String fullname = resultSet.getString("fullname");
+                String email = resultSet.getString("email");
                 listData.add(fullname);
+                listData.add(email);
+
+
             }
         } catch (Exception e) {
             e.printStackTrace();
