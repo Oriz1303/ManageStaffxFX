@@ -63,6 +63,9 @@ import javafx.util.Duration;
 public class AdminTest implements Initializable {
 
     @FXML
+    private Label staffName1, staffName2, staffName3, staffName4, staffName5,
+            staffName6, staffEmail1, staffEmail2, staffEmail3, staffEmail4, staffEmail5, staffEmail6;
+
     private VBox vboxPagination;
 
     @FXML
@@ -151,6 +154,8 @@ public class AdminTest implements Initializable {
     private ObservableList<Staff> listStaff;
     StaffModel dao = new StaffModel();
     AlertMessage alert = new AlertMessage();
+    private Label[] staffNameLabels;
+    private Label[] staffEmailLabels;
 
     private UserDataModel userDataModel;
 
@@ -167,6 +172,9 @@ public class AdminTest implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        staffNameLabels = new Label[]{
+                staffName1, staffName2, staffName3, staffName4, staffName5, staffName6
+        };
 
         if (userDataModel != null) {
             String username = userDataModel.getUsername();
@@ -300,8 +308,8 @@ public class AdminTest implements Initializable {
         });
 
         getTotalStaff();
-        showInfoInLabels();
         getStaffInfo();
+        showInfoInLabels();
         AtomicReference<String> pathImgRef = new HandleImageFiles().handleBtn(btnChooseFile, circlePortrait);
         btnSubmitRegister.setOnMouseClicked(e -> {
             int id = Integer.parseInt(staffId.getText());
@@ -381,23 +389,16 @@ public class AdminTest implements Initializable {
 
     // get the names of the last four users
     public void showInfoInLabels() {
-        if (staffInfo != null && staffInfo.size() >= 4) {
-            String staff1 = staffInfo.get(0);
-            String staff2 = staffInfo.get(1);
-            String staff3 = staffInfo.get(2);
-            String staff4 = staffInfo.get(3);
-            if (dashboard_lable1 != null && dashboard_lable2 != null && dashboard_lable3 != null && dashboard_lable4 != null) {
-                dashboard_lable1.setText(staff1);
-                dashboard_lable2.setText(staff2);
-                dashboard_lable3.setText(staff3);
-                dashboard_lable4.setText(staff4);
-            } else {
-                System.out.println("Lỗi");
+        if (staffInfo != null && staffInfo.size() >= 12) {
+            for (int i = 0; i < 6; i++) {
+                staffNameLabels[i].setText(staffInfo.get(i * 2));
+                staffEmailLabels[i].setText(staffInfo.get(i * 2 + 1));
             }
         } else {
             System.out.println("Lỗi");
         }
     }
+
 
     @FXML
     private void handleClick(ActionEvent event) {

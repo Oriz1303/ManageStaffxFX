@@ -19,7 +19,6 @@ public class Logout {
         alert.setHeaderText(null);
         alert.setContentText("Are you sure you want to logout?");
         Optional<ButtonType> option = alert.showAndWait();
-//        btnSignOut
         try {
             if (option.get().equals(ButtonType.OK)) {
                 btn.getScene().getWindow().hide();
