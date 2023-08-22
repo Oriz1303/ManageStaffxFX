@@ -1,7 +1,20 @@
 package com.example.managestaff.controller;
 
 import com.example.managestaff.model.entity.Staff;
+import com.example.managestaff.model.entity.UserDataModel;
 import com.example.managestaff.model.repository.StaffModel;
+import com.example.managestaff.model.services.ExportFile;
+import com.example.managestaff.model.services.Oclock;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextField;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
@@ -10,6 +23,7 @@ import javafx.collections.transformation.SortedList;
 import com.example.managestaff.model.services.HandleImageFiles;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,15 +32,24 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
@@ -34,46 +57,85 @@ import java.util.concurrent.atomic.AtomicReference;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.util.Duration;
 
 
 public class AdminTest implements Initializable {
 
     @FXML
+    private VBox vboxPagination;
+
+    @FXML
     private Label dashboard_lable1, dashboard_lable2, dashboard_lable3, dashboard_lable4;
 
     @FXML
-    private Label dashboard_totalReport, dashboard_totalRoom, dashboard_totalStaff, username;
+    private Label dashboard_totalReport, dashboard_totalRoom,
+            dashboard_totalStaff, username, testModel, labelRealTime,
+            staffNameInfo, staffTotalStaff, staffActiveStaff,
+            staffDeactiveStaff, userDataModelTest;
 
     @FXML
-    private AnchorPane anchorAddAccount, anchorDashBoard, anchorInfo, anchorReport, anchorRoom, anchorSalary, anchorSetting, anchorStaff, admin_form;
+    private AnchorPane anchorAddAccount, anchorDashBoard,
+            anchorInfo, anchorReport, anchorRoom,
+            anchorSalary, anchorSetting, anchorStaff, admin_form,
+            anchorRegisterForm, anchorInfoStaff;
 
     @FXML
-    private Button btnAccountInfo, btnAddAccount, btnSalary, btnDBoard, btnDom, btnReport, btnSetting, btnSignOut, btnStaff, btnChooseFile, btnSubmitRegister;
+    private Button btnAccountInfo, btnAddAccount, btnSalary,
+            btnDBoard, btnDom, btnReport, btnSetting,
+            btnSignOut, btnStaff, btnChooseFile,
+            closeAnchorParent2, closeAnchorParent1;
+
+    @FXML
+    private JFXButton btnSubmitRegister, btnEditStaffInfo, btnStaffDeleteInfo,
+            btnUpdateStaffInfo;
+
+    @FXML
+    private FontAwesomeIcon btnRegister, btnReload, btnExport;
+
 
     @FXML
     private TableView<Staff> viewDataStaff;
 
     @FXML
-    private TableColumn<Staff, String> colDepartment, colEdit, colGender, colId, colName, colPhone;
+    private TableColumn<Staff, String> colId;
+
+    @FXML
+    private TableColumn<Staff, String> colPhone;
+
+    @FXML
+    private TableColumn<Staff, String> colName;
+
+
+    @FXML
+    private TableColumn<Staff, String> colGender;
+
+    @FXML
+    private TableColumn<Staff, String> colDepartment;
+    @FXML
+    private TableColumn<Staff, String> colEdit;
 
     // VAR REGISTER FORM INITIAL
     @FXML
-    private TextField staffEmail, staffName, staffPhoneNumber, staffId;
+    private JFXTextField staffEmail, staffName, staffPhoneNumber, staffId,
+            staffGenderInfo, staffDobInfo,
+            staffPhoneInfo, staffEmailInfo, staffDepartmentInfo,
+            staffPositionInfo;
 
     @FXML
     private DatePicker staffDob;
 
     @FXML
-    private RadioButton rollAdmin, rollUser, genMale, genFemale;
+    private JFXRadioButton rollAdmin, rollUser, genMale, genFemale;
 
     @FXML
-    private ChoiceBox<String> listDepartments, listPositions;
+    private JFXComboBox<String> listDepartments, listPositions;
 
     @FXML
     private ToggleGroup gender, radioRoll;
 
     @FXML
-    Circle circlePortrait;
+    Circle circlePortrait, staffCircleInfo;
     // VAR REGISTER FORM END
 
     @FXML
@@ -83,28 +145,159 @@ public class AdminTest implements Initializable {
     private Pagination paginationStaff;
 
     @FXML
+    private ImageView btnClose;
 
     private ObservableList<String> staffInfo;
     private ObservableList<Staff> listStaff;
     StaffModel dao = new StaffModel();
     AlertMessage alert = new AlertMessage();
 
-    private final static int rowsPerpage = 15;
+    private UserDataModel userDataModel;
 
-    private Node createPage(int pageIndex) {
-        listStaff = new StaffModel().getAll();
-        int fromIndex = pageIndex * rowsPerpage;
-        int toIndex = Math.min(fromIndex + rowsPerpage, listStaff.size());
-        viewDataStaff.setItems(FXCollections.observableArrayList(listStaff.subList(fromIndex, toIndex)));
-        return viewDataStaff;
+    public void setUserDataModel(UserDataModel userDataModel) {
+        this.userDataModel = userDataModel;
     }
+
+    EventHandler<ActionEvent> btnsClose = e -> {
+        Button clicked = (Button) e.getSource();
+        AnchorPane parentAnchor = (AnchorPane) clicked.getParent();
+        parentAnchor.setVisible(false);
+    };
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        // Pagination start
-//    paginationStaff.setPageFactory(this::createPage);
-        // Pagination end
+        if (userDataModel != null) {
+            String username = userDataModel.getUsername();
+            System.out.println(username);
+            userDataModelTest.setText("Welcome, " + username);
+        } else {
+            System.out.println("failed");
+        }
+
+        staffDeactiveStaff.setText(String.valueOf(StaffModel.getDeactiveStaff()));
+        staffActiveStaff.setText(String.valueOf(StaffModel.getActiveStaff()));
+        staffTotalStaff.setText(String.valueOf(StaffModel.getToTalStaff()));
+
+        Oclock.runClock(labelRealTime);
+
+        Tooltip closeTooltip = new Tooltip("Close");
+        Tooltip.install(closeAnchorParent1, closeTooltip);
+        Tooltip.install(closeAnchorParent2, closeTooltip);
+        closeAnchorParent1.setOnAction(btnsClose);
+        closeAnchorParent2.setOnAction(btnsClose);
+
+
+        viewDataStaff.setOnMouseClicked(event -> {
+            if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                System.out.println("Double-clicked!");
+
+                Staff selectedStaff = viewDataStaff.getSelectionModel().getSelectedItem();
+                anchorInfoStaff.setVisible(true);
+                staffNameInfo.setText(selectedStaff.getName());
+                if (selectedStaff.getGender() == 0) {
+                    staffGenderInfo.setText("Male");
+                } else {
+                    staffGenderInfo.setText("Female");
+                }
+                Image image;
+                if (selectedStaff.getUrlPortrait() != null) {
+                    image = new Image("file:" + selectedStaff.getUrlPortrait());
+                    staffCircleInfo.setFill(new ImagePattern(image));
+                } else {
+                    image = new Image("file:src/main/resources/com/example/managestaff/assets/images/img_staff/non_avatar.png");
+                    staffCircleInfo.setFill(new ImagePattern(image));
+                }
+
+                staffDobInfo.setText(String.valueOf(selectedStaff.getDob()));
+                staffPhoneNumber.setText(selectedStaff.getPhoneNumber());
+                staffEmailInfo.setText(selectedStaff.getEmail());
+
+                int departmentId = selectedStaff.getDepartmentId();
+                String department = switch (departmentId) {
+                    case 1 -> "HR";
+                    case 2 -> "BE";
+                    case 3 -> "FE";
+                    case 4 -> "SALES";
+                    case 5 -> "MANAGER";
+                    default -> "Unknown";
+                };
+                staffDepartmentInfo.setText(department);
+
+                int positionId = selectedStaff.getPositionId();
+                String position = switch (positionId) {
+                    case 1 -> "INTERN";
+                    case 2 -> "FRESHER";
+                    case 3 -> "JUNIOR";
+                    case 4 -> "SENIOR";
+                    case 5 -> "CEO";
+                    default -> "Unknown";
+                };
+                staffPositionInfo.setText(position);
+
+                btnStaffDeleteInfo.setOnMouseClicked(e -> {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Confirmation Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Are you sure to want delete this acount");
+                    Optional<ButtonType> option = alert.showAndWait();
+                    if (option.get().equals(ButtonType.OK)) {
+                        StaffModel.delete(selectedStaff);
+                        anchorInfoStaff.setVisible(false);
+                    }
+                });
+
+                btnEditStaffInfo.setOnMouseClicked(e -> {
+                    staffPhoneInfo.setEditable(true);
+                    btnEditStaffInfo.setVisible(false);
+                    btnUpdateStaffInfo.setVisible(true);
+                });
+            }
+        });
+
+        Tooltip registerTooltip = new Tooltip("Add New");
+        Tooltip.install(btnRegister, registerTooltip);
+        btnRegister.setOnMouseClicked(e -> {
+            anchorRegisterForm.setVisible(true);
+            anchorRegisterForm.toFront();
+        });
+
+        Tooltip exportTooltip = new Tooltip("Export to .xlxs");
+        Tooltip.install(btnExport, exportTooltip);
+        btnExport.setOnMouseClicked(e -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Excel Files", "*.xlsx"));
+            File outputFile = fileChooser.showSaveDialog(viewDataStaff.getScene().getWindow());
+
+            if (outputFile != null) {
+                try {
+                    ExportFile.exportToExcel(viewDataStaff, outputFile);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+
+        btnClose.setOnMouseClicked(e -> {
+            anchorRegisterForm.setVisible(false);
+        });
+
+        TableView.TableViewSelectionModel<Staff> selectionModel = viewDataStaff.getSelectionModel();
+
+        Staff test = selectionModel.getSelectedItem();
+        if (test != null) {
+            String name = test.getName();
+            testModel.setText(test.getEmail());
+        }
+
+        Tooltip reloadTooltip = new Tooltip("Reload");
+        Tooltip.install(btnReload, reloadTooltip);
+        btnReload.setOnMouseClicked(e -> {
+            listStaff.clear();
+            listStaff = new StaffModel().getAll();
+            viewDataStaff.setItems(getItemsForPage(0));
+        });
 
         getTotalStaff();
         showInfoInLabels();
@@ -113,8 +306,9 @@ public class AdminTest implements Initializable {
         btnSubmitRegister.setOnMouseClicked(e -> {
             int id = Integer.parseInt(staffId.getText());
             String name = staffName.getText();
-            RadioButton selectRadioGender = (RadioButton) gender.getSelectedToggle();
+            JFXRadioButton selectRadioGender = (JFXRadioButton) gender.getSelectedToggle();
             String genderValue = selectRadioGender.getText();
+            System.out.println(genderValue);
             int gender = genderValue == "Male" ? 1 : 0;
             Date getDate = Date.valueOf(staffDob.getValue());
             String phoneNumber = staffPhoneNumber.getText();
@@ -144,7 +338,12 @@ public class AdminTest implements Initializable {
                     pathImg = pathImgRef.get();
                     Staff staff = new Staff(id, name, gender, getDate, phoneNumber, email, departmentId, positionId, pathImg);
                     StaffModel.add(staff);
-                    alert.successMessage("Sucess full");
+                    alert.successMessage("Sucessfull!");
+                    anchorRegisterForm.setVisible(false);
+                    staffId.clear();
+                    staffName.clear();
+                    staffPhoneNumber.clear();
+                    staffEmail.clear();
                 }
             }
         });
@@ -156,6 +355,7 @@ public class AdminTest implements Initializable {
         listPositions.setItems(positions);
         listPositions.setValue("INTERN");
     }
+
 
     private boolean isIdDuplicate(int id) {
         for (Staff staff : listStaff) {
@@ -171,9 +371,12 @@ public class AdminTest implements Initializable {
         dashboard_totalStaff.setText(String.valueOf(total));
     }
 
+    @FXML
+    void closeAnchor(MouseEvent event) {
+    }
+
     public void getStaffInfo() {
         staffInfo = dao.getFullnames();
-        System.out.println(staffInfo);
     }
 
     // get the names of the last four users
@@ -202,7 +405,6 @@ public class AdminTest implements Initializable {
         anchorStaff.setVisible(event.getSource() == btnStaff);
         anchorReport.setVisible(event.getSource() == btnReport);
         anchorRoom.setVisible(event.getSource() == btnDom);
-        anchorAddAccount.setVisible(event.getSource() == btnAddAccount);
         anchorSalary.setVisible(event.getSource() == btnSalary);
         anchorInfo.setVisible(event.getSource() == btnAccountInfo);
         anchorSetting.setVisible(event.getSource() == btnSetting);
@@ -232,6 +434,7 @@ public class AdminTest implements Initializable {
                     x = event.getSceneX();
                     y = event.getSceneY();
                 });
+
                 root.setOnMouseDragged(event -> {
                     stage.setX(event.getScreenX() - x);
                     stage.setY(event.getScreenY() - y);
@@ -244,20 +447,34 @@ public class AdminTest implements Initializable {
         }
     }
 
+    private static final int ITEMS_PER_PAGE = 20;
 
     private void loadData() {
-        ObservableList<Staff> dataList = FXCollections.observableArrayList();
-        final int itemsPerPage = 5;
-        final int totalPages = (dataList.size() / itemsPerPage) + 1;
-        paginationStaff.setPageCount(totalPages);
+
         listStaff = new StaffModel().getAll();
-//        colId = new TableColumn<>("id");
-//        colId.setCellValueFactory(param -> param.getValue().getId() );
+
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colGender.setCellValueFactory(cellData -> {
+            Staff staff = cellData.getValue();
+            String genderText = staff.getGender() == 1 ? "Female" : "Male";
+            return new SimpleStringProperty(genderText);
+        });
         colPhone.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
-        colDepartment.setCellValueFactory(new PropertyValueFactory<>("departmentId"));
-        colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        colDepartment.setCellValueFactory(cellData -> {
+            Staff staff = cellData.getValue();
+            int departmentId = staff.getDepartmentId();
+            String department = switch (departmentId) {
+                case 1 -> "HR";
+                case 2 -> "BE";
+                case 3 -> "FE";
+                case 4 -> "SALES";
+                case 5 -> "MANAGER";
+                default -> "Unknown";
+            };
+            return new SimpleStringProperty(department);
+        });
+
 
         Callback<TableColumn<Staff, String>, TableCell<Staff, String>> handleCell = (TableColumn<Staff, String> param) -> {
             final TableCell<Staff, String> cell = new TableCell<Staff, String>() {
@@ -265,17 +482,10 @@ public class AdminTest implements Initializable {
                 public void updateItem(String item, boolean empty) {
                     super.updateItem(item, empty);
                     if (empty) {
-                        setGraphic(null);
                         setText(null);
                     } else {
-                        Button button = new Button();
-                        button.setText("View 🔍");
-                        button.setStyle("-glyph-size:40px");
-                        button.setOnMouseClicked((MouseEvent event) -> {
-                            Staff staff = viewDataStaff.getSelectionModel().getSelectedItem();
-                        });
-                        setGraphic(button);
-                        setText(null);
+                        int rowIndex = getIndex() + 1;
+                        setText(Integer.toString(rowIndex));
                     }
                 }
 
@@ -283,11 +493,16 @@ public class AdminTest implements Initializable {
             return cell;
         };
         colEdit.setCellFactory(handleCell);
-        viewDataStaff.setItems(listStaff);
+
+        int pageCount = (int) Math.ceil((double) listStaff.size() / ITEMS_PER_PAGE);
+        paginationStaff.setPageCount(pageCount);
+        paginationStaff.setPageFactory(this::createPage);
+        viewDataStaff.setItems(getItemsForPage(0));
+
         FilteredList<Staff> filteredList = new FilteredList<>(listStaff);
         account_search.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredList.setPredicate(Staff -> {
-                if (newValue.isEmpty() || newValue.isBlank() || newValue == null) {
+                if (newValue == null || newValue.isEmpty() || newValue.isBlank()) {
                     return true;
                 }
                 String searchKeyword = newValue.toLowerCase();
@@ -303,9 +518,23 @@ public class AdminTest implements Initializable {
                     return false;
                 }
             });
+            viewDataStaff.setItems(filteredList);
         });
         SortedList<Staff> sortedList = new SortedList<>(filteredList);
         sortedList.comparatorProperty().bind(viewDataStaff.comparatorProperty());
-        viewDataStaff.setItems(sortedList);
+        viewDataStaff.setItems(getItemsForPage(0));
     }
+
+    private Node createPage(int pageIndex) {
+        viewDataStaff.setItems(getItemsForPage(pageIndex));
+        return viewDataStaff;
+    }
+
+    private ObservableList<Staff> getItemsForPage(int pageIndex) {
+        int fromIndex = pageIndex * ITEMS_PER_PAGE;
+        int toIndex = Math.min(fromIndex + ITEMS_PER_PAGE, listStaff.size());
+        return FXCollections.observableArrayList(listStaff.subList(fromIndex, toIndex));
+    }
+
 }
+

@@ -1,0 +1,50 @@
+/* pagination.css */
+
+.pagination {
+    -fx-alignment: CENTER;
+}
+
+.pagination .page-count {
+    -fx-font-size: 14px;
+    -fx-fill: #333;
+}
+
+.pagination .arrow-button {
+    -fx-background-color: transparent;
+    -fx-shape: "M 0 0 L 10 5 L 0 10 Z";
+}
+
+.pagination .arrow-button:hover {
+    -fx-background-color: #eee;
+}
+
+.pagination .arrow-button:pressed {
+    -fx-background-color: #ddd;
+}
+
+.pagination .page-indicator {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-fill: #333;
+}
+
+.pagination .page-indicator:selected {
+    -fx-fill: #007bff;
+}
+
+.pagination .dot {
+    -fx-background-color: transparent;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 50%;
+    -fx-min-width: 12px;
+    -fx-min-height: 12px;
+}
+
+.pagination .dot:selected {
+    -fx-background-color: #007bff;
+}
+
+.pagination .dot:hover {
+    -fx-border-color: #007bff;
+}

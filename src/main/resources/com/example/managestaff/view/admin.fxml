@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
@@ -9,12 +13,12 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -27,15 +31,15 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="admin_form" prefHeight="848.0" prefWidth="1390.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.managestaff.controller.AdminTest">
+<AnchorPane fx:id="admin_form" prefHeight="848.0" prefWidth="1400.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.managestaff.controller.AdminTest">
    <children>
       <VBox prefHeight="848.0" prefWidth="267.0" spacing="10.0" styleClass="backgroundAdmin" stylesheets="@../assets/css/style.css">
          <children>
             <Pane prefHeight="101.0" prefWidth="267.0">
                <children>
-                  <Label layoutX="38.0" layoutY="19.0" prefHeight="61.0" prefWidth="193.0" text="DOManagement" textFill="WHITE">
+                  <Label layoutX="38.0" layoutY="19.0" prefHeight="61.0" prefWidth="185.0" text="Management" textFill="WHITE">
                      <font>
-                        <Font name="Gill Sans MT Bold" size="24.0" />
+                        <Font name="Oswald Regular" size="34.0" />
                      </font>
                   </Label>
                   <Separator layoutX="-8.0" layoutY="80.0" opacity="0.12" prefHeight="37.0" prefWidth="277.0" />
@@ -124,20 +128,6 @@
                               <FontAwesomeIcon fill="WHITE" glyphName="HOME" size="1.6em" />
                            </graphic>
                         </Button>
-                        <Button fx:id="btnAddAccount" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="40.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Add Account" textFill="WHITE">
-                           <font>
-                              <Font name="Gill Sans MT" size="15.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <padding>
-                              <Insets left="32.0" />
-                           </padding>
-                           <graphic>
-                              <FontAwesomeIcon fill="WHITE" glyphName="USER_PLUS" size="1.3em" />
-                           </graphic>
-                        </Button>
                         <Button fx:id="btnSalary" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="37.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Salary" textFill="WHITE">
                            <font>
                               <Font name="Gill Sans MT" size="15.0" />
@@ -155,7 +145,7 @@
                         <Separator opacity="0.12" prefHeight="0.0" prefWidth="113.0" />
                      </children>
                   </VBox>
-                  <VBox layoutY="352.0" prefHeight="145.0" prefWidth="266.0" spacing="10.0">
+                  <VBox layoutY="304.0" prefHeight="145.0" prefWidth="266.0" spacing="10.0">
                      <children>
                         <Button fx:id="btnAccountInfo" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="28.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Account Info" textFill="WHITE">
                            <font>
@@ -185,28 +175,25 @@
                               <FontAwesomeIcon fill="WHITE" glyphName="GEAR" size="1.4em" />
                            </graphic>
                         </Button>
-                        <Button fx:id="btnSignOut" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Sign Out" textFill="WHITE">
-                           <font>
-                              <Font name="Gill Sans MT" size="15.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <padding>
-                              <Insets left="32.0" />
-                           </padding>
-                           <graphic>
-                              <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="1.3em" />
-                           </graphic>
-                        </Button>
                      </children>
                   </VBox>
+                  <Button fx:id="btnSignOut" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="582.0" mnemonicParsing="false" onAction="#logout" prefHeight="28.0" prefWidth="266.0" styleClass="btnDashboard" stylesheets="@../assets/css/style.css" text="Sign Out" textFill="WHITE">
+                     <font>
+                        <Font name="Gill Sans MT" size="15.0" />
+                     </font>
+                     <padding>
+                        <Insets left="32.0" />
+                     </padding>
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="1.3em" />
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
          </children>
       </VBox>
 
-     <AnchorPane fx:id="anchorDashBoard" layoutX="267.0" layoutY="-1.0" prefHeight="848.0" prefWidth="1105.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+     <AnchorPane fx:id="anchorDashBoard" layoutX="267.0" layoutY="-1.0" prefHeight="848.0" prefWidth="1105.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" visible="false">
 
          <children>
             <AnchorPane layoutX="7.0" prefHeight="848.0" prefWidth="1105.0">
@@ -463,55 +450,363 @@
          <children>
             <AnchorPane layoutX="2.0" layoutY="14.0" prefHeight="848.0" prefWidth="1138.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Pane fx:id="paneAccounts" layoutY="-8.0" prefHeight="98.0" prefWidth="1138.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                  <Pane fx:id="paneAccounts" layoutX="21.0" layoutY="23.0" prefHeight="89.0" prefWidth="1112.0" stylesheets="@../assets/css/style.css">
                      <children>
-                        <Label layoutX="11.0" layoutY="40.0" prefHeight="40.0" prefWidth="124.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="Staff">
+                        <Label fx:id="testController" layoutX="80.0" layoutY="17.0" prefHeight="51.0" prefWidth="86.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="Staff">
                            <font>
-                              <Font name="Gill Sans MT Bold" size="18.0" />
+                              <Font name="Oswald Regular" size="36.0" />
                            </font>
                         </Label>
-                        <Button layoutX="1089.0" layoutY="15.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="48.0" style="-fx-cursor: hand;" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
-                           <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/images/icons/icon_close.jpg" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
+                        <HBox layoutX="753.0" layoutY="27.0" prefHeight="55.0" prefWidth="300.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" spacing="10.0">
+                                 <children>
+                                    <FontAwesomeIcon glyphName="USERS" size="2.4em" />
+                                    <Label fx:id="staffTotalStaff" text="70">
+                                       <font>
+                                          <Font size="29.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0" spacing="10.0">
+                                 <children>
+                                    <FontAwesomeIcon fill="#8d5f5f" glyphName="USER" size="2.4em" />
+                                    <Label fx:id="staffActiveStaff" text="70" textFill="#b57171">
+                                       <font>
+                                          <Font size="29.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0" spacing="10.0">
+                                 <children>
+                                    <FontAwesomeIcon fill="#7c0e0e" glyphName="USER_TIMES" size="2.4em" />
+                                    <Label fx:id="staffDeactiveStaff" text="70" textFill="#a81e1e">
+                                       <font>
+                                          <Font size="29.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <Label layoutX="769.0" layoutY="10.0" text="Total">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="871.0" layoutY="11.0" text="Active" textFill="#8d6161">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="967.0" layoutY="11.0" text="Deactive" textFill="#901c1c">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="userDataModelTest" layoutX="395.0" layoutY="19.0" text="Label" />
                      </children>
+                     <styleClass>
+                        <String fx:value="bgWhite" />
+                        <String fx:value="shadow" />
+                     </styleClass>
                   </Pane>
 
 
-                  <AnchorPane layoutX="-1.0" layoutY="126.0" prefHeight="722.0" prefWidth="1138.0" stylesheets="@../assets/css/style.css">
+                  <AnchorPane layoutX="22.0" layoutY="135.0" prefHeight="691.0" prefWidth="1111.0" stylesheets="@../assets/css/style.css">
 
                      <styleClass>
                         <String fx:value="bgWhite" />
                         <String fx:value="shadow" />
                      </styleClass>
                      <children>
-                        <HBox alignment="CENTER" layoutX="117.0" layoutY="12.0" opacity="0.77" prefHeight="37.0" prefWidth="592.0" styleClass="search" stylesheets="@../assets/css/style.css">
+                        <AnchorPane fx:id="anchorRegisterForm" layoutX="224.0" layoutY="19.0" prefHeight="595.0" prefWidth="678.0" style="-fx-background-color: #fff;" styleClass="shadow" stylesheets="@../assets/css/style.css" visible="false">
                            <children>
-                              <TextField fx:id="account_search" prefHeight="33.0" prefWidth="550.0" promptText="Search..." styleClass="tranparent" stylesheets="@../assets/css/style.css" />
+                              <ImageView fx:id="btnClose" fitHeight="20.0" fitWidth="13.0" layoutX="652.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/images/icons/icon_close.jpg" />
+                                 </image>
+                              </ImageView>
+                              <JFXButton fx:id="btnSubmitRegister" layoutX="227.0" layoutY="507.0" prefHeight="50.0" prefWidth="259.0" style="-fx-background-color: #06367a;" text="Register" textFill="WHITE" />
+                              <VBox layoutX="41.0" layoutY="251.0" prefHeight="194.0" prefWidth="224.0" stylesheets="@../assets/css/style.css">
+                                 <children>
+                                    <Label text="ID:">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXTextField fx:id="staffId" />
+                                    <Label text="Fullname:">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <JFXTextField fx:id="staffName" />
+                                    <Label text="Dob:">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="staffDob" prefWidth="174.0" styleClass="textfield1" stylesheets="@../assets/css/style.css" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="30.0" left="20.0" right="20.0" top="30.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox layoutX="352.0" layoutY="69.0" prefHeight="253.0" prefWidth="217.0">
+                                 <children>
+                                    <Label prefHeight="21.0" prefWidth="52.0" text="Email:">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXTextField fx:id="staffEmail">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <Label text="Phone number:">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <JFXTextField fx:id="staffPhoneNumber">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <Label text="Department:">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <JFXComboBox fx:id="listDepartments" prefHeight="25.0" prefWidth="187.0" />
+                                    <Label text="Position:">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <JFXComboBox fx:id="listPositions" prefHeight="25.0" prefWidth="188.0" />
+                                 </children>
+                              </VBox>
+                              <Circle fx:id="circlePortrait" fill="#1f93ff00" layoutX="135.0" layoutY="125.0" radius="73.0" stroke="#9a9999" strokeType="INSIDE" strokeWidth="0.3" />
+                              <Button fx:id="btnChooseFile" layoutX="60.0" layoutY="217.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="150.0" styleClass="import-btn" stylesheets="@../assets/css/style.css" text="Choose file" />
+                              <VBox layoutX="347.0" layoutY="365.0" prefHeight="101.0" prefWidth="229.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="184.0">
+                                       <children>
+                                          <Label text="Gender:">
+                                             <font>
+                                                <Font name="Gill Sans MT" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXRadioButton fx:id="genMale" text="Male">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="gender" />
+                                             </toggleGroup>
+                                          </JFXRadioButton>
+                                          <JFXRadioButton fx:id="genFemale" text="Female" toggleGroup="$gender" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="15.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Roll:">
+                                             <font>
+                                                <Font name="Gill Sans MT" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXRadioButton fx:id="rollUser" text="USER">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="radioRoll" />
+                                             </toggleGroup>
+                                          </JFXRadioButton>
+                                          <JFXRadioButton fx:id="rollAdmin" prefHeight="17.0" prefWidth="68.0" text="ADMIN" toggleGroup="$radioRoll" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                        <HBox alignment="CENTER" layoutX="78.0" layoutY="21.0" opacity="0.77" prefHeight="37.0" prefWidth="475.0" styleClass="search" stylesheets="@../assets/css/style.css">
+                           <children>
+                              <TextField fx:id="account_search" prefHeight="33.0" prefWidth="400.0" promptText="Name, Phone number, ID,..." styleClass="tranparent" stylesheets="@../assets/css/style.css" />
                               <FontAwesomeIcon glyphName="SEARCH" size="1.4em" />
                            </children>
                         </HBox>
-
-                        <TableView fx:id="viewDataStaff" layoutX="20.0" layoutY="75.0" prefHeight="592.0" prefWidth="1094.0" stylesheets="@../assets/css/style.css">
-                          <columns>
-                            <TableColumn fx:id="colId" prefWidth="65.0" text="ID" />
-                            <TableColumn fx:id="colName" prefWidth="267.0" text="Name" />
-                              <TableColumn fx:id="colGender" prefWidth="177.0" text="Gender" />
-                              <TableColumn fx:id="colPhone" prefWidth="276.0" text="Phone" />
-                              <TableColumn fx:id="colDepartment" prefWidth="158.0" text="Department" />
-                              <TableColumn fx:id="colEdit" prefWidth="149.0" text="Edit" />
-                          </columns>
-                        </TableView>
                         <Label layoutX="758.0" layoutY="30.0" />
-                        <ChoiceBox layoutX="786.0" layoutY="18.0" prefWidth="150.0" />
-                        <Pagination fx:id="paginationStaff" layoutX="444.0" layoutY="652.0" prefHeight="70.0" prefWidth="200.0" />
+                        <VBox fx:id="vboxPagination" alignment="CENTER" layoutX="38.0" layoutY="75.0" prefHeight="595.0" prefWidth="1039.0" stylesheets="@../assets/css/pagination.css">
+                           <children>
+                              <Label text="List Staff">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+      
+                                    <TableView fx:id="viewDataStaff" prefHeight="0.0" prefWidth="1039.0" style="-fx-background-color: #f4f4f4;" styleClass="table-cell" stylesheets="@../assets/css/style.css">
+                                 <columns>
+                                    <TableColumn fx:id="colEdit" prefWidth="75.0" text="No" />
+                                    <TableColumn fx:id="colId" prefWidth="123.00003051757812" text="ID" />
+                                    <TableColumn fx:id="colName" prefWidth="306.33331298828125" text="Name" />
+                                    <TableColumn fx:id="colGender" prefWidth="140.66668701171875" text="Gender" />
+                                    <TableColumn fx:id="colPhone" minWidth="4.0" prefWidth="252.6666259765625" text="Phone Number" />
+                                    <TableColumn fx:id="colDepartment" prefWidth="122.0" text="Department" />
+                                 </columns>
+                              </TableView>
+                              <Label text="Double click row to show more information" />
+                              <Pagination fx:id="paginationStaff" prefHeight="561.0" prefWidth="1039.0" stylesheets="@../assets/css/pagination.css" />
+                           </children>
+                        </VBox>
+                        <FontAwesomeIcon fx:id="btnRegister" fill="#9e5d5d" glyphName="USER_PLUS" layoutX="920.0" layoutY="47.0" size="2.4em" text="" wrappingWidth="27.999999999999943" />
+                        <AnchorPane fx:id="anchorInfoStaff" layoutX="284.0" layoutY="66.0" prefHeight="497.0" prefWidth="512.0" style="-fx-background-color: #fff;" styleClass="shadow" stylesheets="@../assets/css/style.css" visible="false">
+                           <children>
+                              <Label layoutX="230.0" layoutY="13.0" text="Profile">
+                                 <font>
+                                    <Font name="Oswald Regular" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="closeAnchorParent2" layoutX="486.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="11.0" style="-fx-background-color: #fff;">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="TIMES" />
+                                 </graphic>
+                              </Button>
+                              <Pane layoutX="19.0" layoutY="63.0" prefHeight="374.0" prefWidth="474.0" style="-fx-background-color: #fff;" styleClass="shadow" stylesheets="@../assets/css/style.css">
+                                 <children>
+                                    <Circle fx:id="staffCircleInfo" fill="#ffffff00" layoutX="116.0" layoutY="113.0" radius="78.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="shadow" />
+                                    <Label fx:id="staffNameInfo" alignment="CENTER" layoutX="40.0" layoutY="206.0" prefHeight="24.0" prefWidth="156.0" text="Trinh Cong Nguyen">
+                                       <font>
+                                          <Font name="Oswald Regular" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <VBox alignment="CENTER" layoutX="62.0" layoutY="239.0" prefHeight="98.0" prefWidth="118.0" spacing="14.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <JFXTextField fx:id="staffGenderInfo" alignment="CENTER" editable="false" prefHeight="35.0" prefWidth="68.0">
+                                                   <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                             </children>
+                                          </HBox>
+                                          <JFXTextField fx:id="staffDobInfo" alignment="CENTER" editable="false" prefHeight="25.0" prefWidth="144.0" text="20-02-2002">
+                                             <font>
+                                                <Font name="Oswald Regular" size="18.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </JFXTextField>
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="259.0" layoutY="25.0" prefHeight="326.0" prefWidth="171.0" spacing="16.0">
+                                       <children>
+                                          <VBox prefHeight="44.0" prefWidth="145.0">
+                                             <children>
+                                                <Label text="Phone Number:">
+                                                   <font>
+                                                      <Font name="Oswald Regular" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <JFXTextField fx:id="staffPhoneInfo" editable="false" prefHeight="31.0" prefWidth="145.0" text="01234567">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <Label text="Email:">
+                                                   <font>
+                                                      <Font name="Oswald Regular" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <JFXTextField fx:id="staffEmailInfo" editable="false" prefHeight="31.0" prefWidth="145.0" text="oriz1303@gmail.com">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <Label text="Department:">
+                                                   <font>
+                                                      <Font name="Oswald Regular" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <JFXTextField fx:id="staffDepartmentInfo" editable="false" prefHeight="31.0" prefWidth="145.0" text="oriz1303@gmail.com">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <Label text="Position:">
+                                                   <font>
+                                                      <Font name="Oswald Regular" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <JFXTextField fx:id="staffPositionInfo" editable="false" prefHeight="31.0" prefWidth="145.0" text="oriz1303@gmail.com">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                 </children></Pane>
+                              <JFXButton fx:id="btnEditStaffInfo" layoutX="328.0" layoutY="451.0" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: #00a350;" styleClass="shadow" stylesheets="@../assets/css/style.css" text="Edit" textFill="WHITE">
+                                 <font>
+                                    <Font name="Oswald Regular" size="16.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="btnStaffDeleteInfo" layoutX="414.0" layoutY="451.0" prefHeight="34.0" prefWidth="79.0" style="-fx-background-color: #6e1f1f;" styleClass="shadow" text="Delete" textFill="WHITE">
+                                 <font>
+                                    <Font name="Oswald Regular" size="16.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="btnUpdateStaffInfo" layoutX="306.0" layoutY="451.0" prefHeight="34.0" prefWidth="91.0" style="-fx-background-color: #00a350;" styleClass="shadow" stylesheets="@../assets/css/style.css" text="Update" textFill="WHITE" visible="false">
+                                 <font>
+                                    <Font name="Oswald Regular" size="16.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                        <FontAwesomeIcon fx:id="btnReload" glyphName="REFRESH" layoutX="971.0" layoutY="47.0" size="2.2em" />
+                        <FontAwesomeIcon fx:id="btnExport" fill="#004dff" glyphName="DOWNLOAD" layoutX="867.0" layoutY="48.0" size="2.4em" text="" />
                      </children>
+                     <effect>
+                        <BoxBlur />
+                     </effect>
                   </AnchorPane>
+                  <Label fx:id="labelRealTime" layoutX="1105.0" layoutY="831.0" prefHeight="17.0" prefWidth="50.0" text="22:00:00" />
                </children>
             </AnchorPane>
          </children>
@@ -604,29 +899,24 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorRoom" layoutX="267.0" prefHeight="848.0" prefWidth="1137.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" visible="false">
+      <AnchorPane fx:id="anchorRoom" layoutX="267.0" prefHeight="848.0" prefWidth="1137.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
          <children>
             <AnchorPane layoutX="6.0" prefHeight="848.0" prefWidth="1124.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Pane fx:id="paneDom" prefHeight="98.0" prefWidth="1137.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
+                  <Pane fx:id="paneDom" layoutX="24.0" layoutY="19.0" prefHeight="98.0" prefWidth="1113.0" stylesheets="@../assets/css/style.css">
                      <children>
-                        <Label layoutX="8.0" layoutY="32.0" prefHeight="40.0" prefWidth="124.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="DOM">
+                        <Label layoutX="73.0" layoutY="28.0" prefHeight="43.0" prefWidth="150.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="Position">
                            <font>
-                              <Font name="Gill Sans MT Bold" size="18.0" />
+                              <Font name="Gill Sans MT Bold" size="36.0" />
                            </font>
                         </Label>
-                        <Button layoutX="1089.0" layoutY="7.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="48.0" style="-fx-cursor: hand;" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
-                           <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/images/icons/icon_close.jpg" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
                      </children>
+                     <styleClass>
+                        <String fx:value="bgWhite" />
+                        <String fx:value="shadow" />
+                     </styleClass>
                   </Pane>
-                  <AnchorPane layoutY="98.0" prefHeight="747.0" prefWidth="1137.0" stylesheets="@../assets/css/style.css">
+                  <AnchorPane layoutX="22.0" layoutY="137.0" prefHeight="691.0" prefWidth="1113.0" stylesheets="@../assets/css/style.css">
                      <children>
                         <Label layoutX="28.0" layoutY="37.0" text="Select:">
                            <font>
@@ -686,35 +976,34 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="31.0" layoutY="147.0" text="List Rooms:">
+                        <Label layoutX="31.0" layoutY="147.0" text="List Position">
                            <font>
                               <Font name="Gill Sans MT" size="15.0" />
                            </font>
                         </Label>
-                        <AnchorPane layoutY="168.0" prefHeight="577.0" prefWidth="1138.0">
+                        <AnchorPane layoutY="168.0" prefHeight="506.0" prefWidth="1113.0">
                            <children>
-                              <TableView layoutX="14.0" layoutY="8.0" prefHeight="551.0" prefWidth="1112.0">
+                              <TableView fx:id="positionTable" layoutX="14.0" layoutY="8.0" prefHeight="484.0" prefWidth="1084.0">
                                 <columns>
                                   <TableColumn prefWidth="60.0" text="NO" />
-                                  <TableColumn prefWidth="135.0" text="RoomID" />
-                                    <TableColumn prefWidth="115.0" text="Room" />
+                                  <TableColumn prefWidth="135.0" text="Position ID" />
+                                    <TableColumn prefWidth="115.0" text="Position" />
                                     <TableColumn prefWidth="140.0" text="Total Slot" />
                                     <TableColumn prefWidth="142.0" text="Free Slot" />
                                     <TableColumn prefWidth="129.0" text="Electric" />
                                     <TableColumn prefWidth="124.0" text="Water" />
                                     <TableColumn prefWidth="103.0" text="Type" />
-                                    <TableColumn prefWidth="99.0" text="Status" />
-                                    <TableColumn prefWidth="63.0" text="Payment" />
+                                    <TableColumn prefWidth="117.0" text="Status" />
                                 </columns>
                               </TableView>
                            </children>
                         </AnchorPane>
-                        <Label layoutX="901.0" layoutY="143.0" text="Export to excel" textFill="#24833a">
+                        <Label layoutX="860.0" layoutY="143.0" text="Export to excel" textFill="#24833a">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="1060.0" layoutY="143.0" prefHeight="3.0" prefWidth="79.0" text="Refresh" textFill="#24833a">
+                        <Label layoutX="991.0" layoutY="143.0" prefHeight="21.0" prefWidth="52.0" text="Refresh" textFill="#24833a">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -723,153 +1012,14 @@
                         <FontAwesomeIcon fill="#25a14c" glyphName="GENDERLESS" layoutX="284.0" layoutY="131.0" size="1.2em" />
                         <FontAwesomeIcon fill="#235edd" glyphName="REFRESH" layoutX="442.0" layoutY="131.0" size="1.2em" />
                         <FontAwesomeIcon fill="#bc9411" glyphName="TIMES_CIRCLE_ALT" layoutX="621.0" layoutY="130.0" size="1.2em" />
-                        <FontAwesomeIcon fill="#25a14c" glyphName="DOWNLOAD" layoutX="881.0" layoutY="157.0" size="1.2em" />
-                        <FontAwesomeIcon fill="#25a14c" glyphName="REFRESH" layoutX="1041.0" layoutY="157.0" size="1.2em" />
+                        <FontAwesomeIcon fill="#25a14c" glyphName="DOWNLOAD" layoutX="840.0" layoutY="157.0" size="1.2em" />
+                        <FontAwesomeIcon fill="#25a14c" glyphName="REFRESH" layoutX="972.0" layoutY="157.0" size="1.2em" />
                      </children>
                      <styleClass>
                         <String fx:value="bgWhite" />
                         <String fx:value="shadow" />
                      </styleClass>
                   </AnchorPane>
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="anchorAddAccount" layoutX="267.0" prefHeight="848.0" prefWidth="1137.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" visible="false">
-         <children>
-            <AnchorPane layoutY="-7.0" prefHeight="856.0" prefWidth="1144.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="-7.0">
-               <children>
-                  <Pane fx:id="paneAddAccount" prefHeight="98.0" prefWidth="1138.0" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
-                     <children>
-                        <Label layoutX="8.0" layoutY="36.0" prefHeight="40.0" prefWidth="124.0" styleClass="labelAdmin" stylesheets="@../assets/css/style.css" text="Add Account">
-                           <font>
-                              <Font name="Gill Sans MT Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="1089.0" layoutY="14.0" mnemonicParsing="false" onAction="#exit" prefHeight="35.0" prefWidth="48.0" style="-fx-cursor: hand;" styleClass="bgWhite" stylesheets="@../assets/css/style.css">
-                           <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/images/icons/icon_close.jpg" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </Pane>
-                  <GridPane layoutX="240.0" layoutY="193.0" prefHeight="408.0" prefWidth="392.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="133.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="316.0" minWidth="10.0" prefWidth="259.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label text="Fullname:" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Gill Sans MT" size="15.0" />
-                           </font></Label>
-                        <Label text="Gender:" GridPane.rowIndex="7">
-                           <font>
-                              <Font name="Gill Sans MT" size="15.0" />
-                           </font></Label>
-                        <TextField fx:id="staffName" prefHeight="33.0" prefWidth="259.0" styleClass="textfield1" stylesheets="@../assets/css/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label prefHeight="17.0" prefWidth="41.0" text="Email:" GridPane.rowIndex="2">
-                           <font>
-                              <Font name="Gill Sans MT" size="15.0" />
-                           </font></Label>
-                        <Label text="Phone number:" GridPane.rowIndex="3">
-                           <font>
-                              <Font name="Gill Sans MT" size="15.0" />
-                           </font></Label>
-                        <Label text="Roll:" GridPane.rowIndex="8">
-                           <font>
-                              <Font name="Gill Sans MT" size="15.0" />
-                           </font></Label>
-                        <TextField fx:id="staffEmail" prefHeight="33.0" prefWidth="259.0" styleClass="textfield1" stylesheets="@../assets/css/style.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField fx:id="staffPhoneNumber" prefHeight="33.0" prefWidth="259.0" styleClass="textfield1" stylesheets="@../assets/css/style.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <HBox prefHeight="40.0" prefWidth="259.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                           <children>
-                              <RadioButton fx:id="genMale" blendMode="HARD_LIGHT" cache="true" lineSpacing="1.0" mnemonicParsing="false" stylesheets="@../assets/css/style.css" text="Male">
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="gender" />
-                                 </toggleGroup>
-                                 <HBox.margin>
-                                    <Insets right="45.0" top="15.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="Gill Sans MT" size="13.0" />
-                                 </font>
-                              </RadioButton>
-                              <RadioButton fx:id="genFemale" blendMode="HARD_LIGHT" mnemonicParsing="false" prefHeight="17.0" prefWidth="64.0" stylesheets="@../assets/css/style.css" text="Female" toggleGroup="$gender">
-                                 <HBox.margin>
-                                    <Insets top="15.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="Gill Sans MT" size="13.0" />
-                                 </font>
-                              </RadioButton>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="13.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
-                           <children>
-                              <RadioButton fx:id="rollUser" blendMode="HARD_LIGHT" mnemonicParsing="false" stylesheets="@../assets/css/style.css" text="USER">
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="radioRoll" />
-                                 </toggleGroup>
-                                 <HBox.margin>
-                                    <Insets right="27.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="Gill Sans MT" size="13.0" />
-                                 </font>
-                              </RadioButton>
-                              <RadioButton fx:id="rollAdmin" blendMode="HARD_LIGHT" mnemonicParsing="false" prefHeight="17.0" prefWidth="74.0" stylesheets="@../assets/css/style.css" text="ADMIN" toggleGroup="$radioRoll">
-                                 <font>
-                                    <Font name="Gill Sans MT" size="13.0" />
-                                 </font></RadioButton>
-                           </children>
-                        </HBox>
-                        <Label text="Dob:" GridPane.rowIndex="4">
-                           <font>
-                              <Font name="Gill Sans MT" size="15.0" />
-                           </font>
-                        </Label>
-                        <DatePicker fx:id="staffDob" prefWidth="174.0" styleClass="textfield1" stylesheets="@../assets/css/style.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label text="Department:" GridPane.rowIndex="5">
-                           <font>
-                              <Font name="Gill Sans MT" size="15.0" />
-                           </font>
-                        </Label>
-                        <ChoiceBox fx:id="listDepartments" prefHeight="23.0" prefWidth="174.0" styleClass="textfield1" stylesheets="@../assets/css/style.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label text="Position:" GridPane.rowIndex="6">
-                           <font>
-                              <Font name="Gill Sans MT" size="15.0" />
-                           </font>
-                        </Label>
-                        <ChoiceBox fx:id="listPositions" prefWidth="174.0" styleClass="textfield1" stylesheets="@../assets/css/style.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <Label text="ID:">
-                           <font>
-                              <Font name="Gill Sans MT" size="15.0" />
-                           </font></Label>
-                        <TextField fx:id="staffId" prefHeight="33.0" prefWidth="259.0" styleClass="textfield1" stylesheets="@../assets/css/style.css" GridPane.columnIndex="1" />
-                     </children>
-                  </GridPane>
-                  <Button fx:id="btnSubmitRegister" layoutX="240.0" layoutY="608.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="295.0" styleClass="registerBtn" stylesheets="@../assets/css/style.css" text="Register" textFill="WHITE">
-                     <font>
-                        <Font name="Gill Sans MT" size="17.0" />
-                     </font></Button>
-                  <Circle fx:id="circlePortrait" fill="#1f93ff00" layoutX="923.0" layoutY="300.0" radius="115.0" stroke="#9a9999" strokeType="INSIDE" strokeWidth="0.3" />
-                  <Button fx:id="btnChooseFile" layoutX="856.0" layoutY="443.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="150.0" styleClass="import-btn" stylesheets="@../assets/css/style.css" text="Choose file" />
                </children>
             </AnchorPane>
          </children>
@@ -1216,5 +1366,10 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <Button fx:id="closeAnchorParent1" layoutX="1398.0" mnemonicParsing="false" style="-fx-background-color: #ebf2fc;" textFill="#ffffff00">
+         <graphic>
+            <FontAwesomeIcon glyphName="TIMES" />
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
