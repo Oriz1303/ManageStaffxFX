@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import java.lang.String?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.managestaff.controller.SalarySearchController"
+            prefHeight="400.0" prefWidth="600.0">
+    <AnchorPane layoutX="1.0" layoutY="111.0" prefHeight="736.0" prefWidth="1137.0" stylesheets="@../assets/css/style.css">
+        <children>
+            <HBox alignment="CENTER" layoutX="121.0" layoutY="33.0" opacity="0.77" prefHeight="37.0" prefWidth="592.0" styleClass="search" stylesheets="@../assets/css/style.css">
+                <children>
+                    <TextField prefHeight="33.0" prefWidth="550.0" promptText="Search..." styleClass="tranparent" stylesheets="@../assets/css/style.css" />
+                    <FontAwesomeIcon glyphName="SEARCH" size="1.4em" />
+                </children>
+            </HBox>
+            <TableView fx:id="viewDataStaff1" layoutX="19.0" layoutY="102.0" prefHeight="557.0" prefWidth="1094.0" stylesheets="@../assets/css/style.css">
+                <columns>
+                    <TableColumn prefWidth="82.0" text="ID" />
+                    <TableColumn prefWidth="301.0" text="Present" />
+                    <TableColumn prefWidth="315.0" text="Absent" />
+                    <TableColumn prefWidth="213.0" text="Salary" />
+                    <TableColumn prefWidth="181.0" text="Edit" />
+                </columns>
+            </TableView>
+            <ChoiceBox layoutX="800.0" layoutY="39.0" prefWidth="150.0" />
+            <Pagination layoutX="417.0" layoutY="673.0" prefHeight="61.0" prefWidth="259.0" />
+        </children>
+        <styleClass>
+            <String fx:value="bgWhite" />
+            <String fx:value="shadow" />
+        </styleClass>
+    </AnchorPane>
+</AnchorPane>
