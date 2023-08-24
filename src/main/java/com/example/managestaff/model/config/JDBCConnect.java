@@ -1,4 +1,4 @@
-package com.example.managestaff.model.dao;
+package com.example.managestaff.model.config;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,7 +1,7 @@
 
 package com.example.managestaff.model.repository;
 
-import com.example.managestaff.model.dao.JDBCConnect;
+import com.example.managestaff.model.config.JDBCConnect;
 import com.example.managestaff.model.entity.Staff;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,10 +11,15 @@ import java.text.SimpleDateFormat;
 import java.util.Properties;
 
 public class StaffModel {
+
+    private static Connection getConnection() throws Exception {
+        Properties properties = new JDBCConnect().dbConfig();
+        return JDBCConnect.getConnection(properties);
+    }
+
     public boolean getOne(String username, String password) {
         String query = "SELECT * FROM account WHERE username = ? AND password = ?;";
-        Properties properties = new JDBCConnect().dbConfig();
-        try (Connection connect = JDBCConnect.getConnection(properties);
+        try (Connection connect = getConnection();
              PreparedStatement ps = connect.prepareStatement(query);
         ) {
             ps.setString(1, username);
@@ -52,11 +57,11 @@ public class StaffModel {
         return listData;
     }
 
-    public int getToTalStaff() {
-        String sql = "SELECT COUNT(id) FROM staff ";
-        Properties properties = new JDBCConnect().dbConfig();
 
-        try (Connection connect = JDBCConnect.getConnection(properties);
+    public static int getToTalStaff() {
+        String sql = "SELECT COUNT(id) FROM staff ";
+
+        try (Connection connect = getConnection();
              PreparedStatement ps = connect.prepareStatement(sql);
         ) {
             ResultSet resultSet = ps.executeQuery();
@@ -69,6 +74,35 @@ public class StaffModel {
         return 0;
     }
 
+    public static int getActiveStaff() {
+        String sql = "SELECT COUNT(id) FROM staff WHERE status = 1";
+        try (Connection connect = getConnection();
+             PreparedStatement ps = connect.prepareStatement(sql);
+        ) {
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                return resultSet.getInt("COUNT(id)");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static int getDeactiveStaff() {
+        String sql = "SELECT COUNT(id) FROM staff WHERE status = 0";
+        try (Connection connect = getConnection();
+             PreparedStatement ps = connect.prepareStatement(sql);
+        ) {
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                return resultSet.getInt("COUNT(id)");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
     public static boolean add(Staff staff) {
         String insertStaff = "INSERT INTO staff ( " +
@@ -76,8 +110,7 @@ public class StaffModel {
                 "department_id, position_id, imgUrl,id, status)" +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 1)";
 
-        Properties properties = new JDBCConnect().dbConfig();
-        try (Connection connect = JDBCConnect.getConnection(properties);
+        try (Connection connect = getConnection();
              PreparedStatement ps = connect.prepareStatement(insertStaff)) {
             ps.setString(1, staff.getName());
             ps.setInt(2, staff.getGender());
@@ -97,15 +130,24 @@ public class StaffModel {
         return false;
     }
 
+    public static void delete(Staff staff) {
+        String deleteQuery = "UPDATE staff SET status = 0 WHERE id = ?";
+        try (Connection connect = getConnection();
+             PreparedStatement ps = connect.prepareStatement(deleteQuery);) {
+            ps.setInt(1, staff.getId());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public ObservableList<Staff> getAll() {
         ObservableList<Staff> staffList = FXCollections.observableArrayList();
-        String sql = "SELECT * FROM staff";
-        Properties properties = new JDBCConnect().dbConfig();
-        try (Connection connect = JDBCConnect.getConnection(properties);
+        String sql = "SELECT * FROM staff WHERE status = 1 ORDER BY id DESC ";
+        try (Connection connect = getConnection();
              PreparedStatement ps = connect.prepareStatement(sql);
              ResultSet rs = ps.executeQuery();) {
             while (rs.next()) {
-
                 Staff staff = new Staff();
                 staff.setId(rs.getInt("id"));
                 staff.setName(rs.getString("fullname"));
@@ -115,6 +157,7 @@ public class StaffModel {
                 staff.setEmail(rs.getString("email"));
                 staff.setDepartmentId(rs.getInt("department_id"));
                 staff.setPositionId(rs.getInt("position_id"));
+                staff.setUrlPortrait(rs.getString("imgUrl"));
                 staffList.add(staff);
             }
             return staffList;

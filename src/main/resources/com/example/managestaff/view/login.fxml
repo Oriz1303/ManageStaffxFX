@@ -77,5 +77,6 @@
             <FontAwesomeIcon fill="#c6c0c0" glyphName="LOCK" layoutX="378.0" layoutY="365.0" size="1.7em" />
          </children>
       </AnchorPane>
+      <Label fx:id="loginOclock" layoutX="14.0" layoutY="578.0" prefHeight="17.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

@@ -1,7 +1,7 @@
 package com.example.managestaff.model.services;
 
 
-public class Pagination {
+public class Paginations {
 
 //    TableView<MyData> tableView = new TableView<>();
 //    Pagination pagination = new Pagination();
