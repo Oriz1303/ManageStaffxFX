@@ -66,6 +66,7 @@ public class AdminTest implements Initializable {
     private Label staffName1, staffName2, staffName3, staffName4, staffName5,
             staffName6, staffEmail1, staffEmail2, staffEmail3, staffEmail4, staffEmail5, staffEmail6,lable;
 
+    @FXML
     private VBox vboxPagination;
 
     @FXML
