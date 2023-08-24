@@ -2,6 +2,7 @@ package com.example.managestaff.controller;
 
 import com.example.managestaff.model.entity.Staff;
 import com.example.managestaff.model.repository.StaffModel;
+import com.jfoenix.controls.JFXComboBox;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
@@ -27,6 +28,7 @@ import javafx.util.Callback;
 
 import java.net.URL;
 import java.sql.Date;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
@@ -40,7 +42,7 @@ public class AdminTest implements Initializable {
 
     @FXML
     private Label staffName1, staffName2, staffName3, staffName4, staffName5,
-            staffName6, staffEmail1, staffEmail2, staffEmail3, staffEmail4, staffEmail5, staffEmail6;
+            staffName6, staffEmail1, staffEmail2, staffEmail3, staffEmail4, staffEmail5, staffEmail6,lable;
 
 
     @FXML
@@ -69,7 +71,7 @@ public class AdminTest implements Initializable {
     private RadioButton rollAdmin, rollUser, genMale, genFemale;
 
     @FXML
-    private ChoiceBox<String> listDepartments, listPositions;
+    private JFXComboBox listDepartments, listPositions;
 
     @FXML
     private ToggleGroup gender, radioRoll;
@@ -92,7 +94,8 @@ public class AdminTest implements Initializable {
     AlertMessage alert = new AlertMessage();
     private Label[] staffNameLabels;
     private Label[] staffEmailLabels;
-
+    private ResourceBundle bundle;
+    private Locale  locale;
     private final static int rowsPerpage = 15;
 
     private Node createPage(int pageIndex) {
@@ -125,13 +128,15 @@ public class AdminTest implements Initializable {
             Date getDate = Date.valueOf(staffDob.getValue());
             String phoneNumber = staffPhoneNumber.getText();
             String email = staffEmail.getText();
-            String department = listDepartments.getValue();
+            String department = (String) listDepartments.getValue();
             int departmentId = department == "HR" ? 1 : department == "BE" ? 2 : department == "FE" ? 3 : department == "SALES" ? 4 : 5;
-            String position = listPositions.getValue();
+            String position = (String) listPositions.getValue();
             int positionId = position == "INTERN" ? 1 : position == "FRESHER" ? 2 : position == "JUNIOR" ? 3 : position == "SENIOR" ? 4 : 5;
             RadioButton selectRadioRoll = (RadioButton) radioRoll.getSelectedToggle();
             String rollValue = selectRadioRoll.getText();
             int roll = rollValue == "USER" ? 1 : 2;
+
+//             lam thử cái choose language xem
 
             //VALIDATE REGISTER
             if (name.trim().isBlank() || email.trim().isBlank() || phoneNumber.trim().isBlank()) {
@@ -210,7 +215,6 @@ public class AdminTest implements Initializable {
     public void exit() {
         System.exit(0);
     }
-
     private double x = 0;
     private double y = 0;
 
@@ -307,4 +311,6 @@ public class AdminTest implements Initializable {
         sortedList.comparatorProperty().bind(viewDataStaff.comparatorProperty());
         viewDataStaff.setItems(sortedList);
     }
+
+
 }

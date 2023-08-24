@@ -209,7 +209,7 @@
          </children>
       </VBox>
 
-     <AnchorPane fx:id="anchorDashBoard" layoutX="267.0" layoutY="-1.0" prefHeight="848.0" prefWidth="1155.0" stylesheets="@../assets/css/style.css">
+     <AnchorPane fx:id="anchorDashBoard" layoutX="267.0" layoutY="-1.0" prefHeight="848.0" prefWidth="1155.0" stylesheets="@../assets/css/style.css" visible="false">
 
          <children>
             <AnchorPane prefHeight="848.0" prefWidth="1155.0" style="-fx-background-color: #eff2f6;">
@@ -1040,6 +1040,7 @@
                                     <ToggleGroup fx:id="gender" />
                                  </toggleGroup>
                               </JFXRadioButton>
+<!--                              -->
                               <JFXRadioButton fx:id="genFemale" text="Female" toggleGroup="$gender" />
                            </children>
                         </HBox>
@@ -1088,6 +1089,7 @@
                         <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <JFXComboBox fx:id="listDepartments" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <JFXComboBox fx:id="listPositions" prefHeight="25.0" prefWidth="203.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+<!--                        doi ti xem lai code-->
                      </children>
                   </GridPane>
                   <Button fx:id="btnSubmitRegister" layoutX="240.0" layoutY="608.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="295.0" styleClass="registerBtn" stylesheets="@../assets/css/style.css" text="Register" textFill="WHITE">
@@ -1378,7 +1380,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorSetting" layoutX="267.0" prefHeight="848.0" prefWidth="1161.0" visible="false">
+      <AnchorPane fx:id="anchorSetting" layoutX="267.0" prefHeight="848.0" prefWidth="1161.0">
          <children>
             <AnchorPane layoutX="77.0" layoutY="106.0" prefHeight="848.0" prefWidth="1124.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -1417,11 +1419,6 @@
                               <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Label text="Defualt language">
-                                 <font>
-                                    <Font name="Gill Sans MT Bold" size="15.0" />
-                                 </font>
-                              </Label>
                               <Label text="Time format" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="Gill Sans MT Bold" size="15.0" />
@@ -1432,9 +1429,14 @@
                                     <Font name="Gill Sans MT Bold" size="15.0" />
                                  </font>
                               </Label>
+                              <Label text="Defualt language">
+                                 <font>
+                                    <Font name="Gill Sans MT Bold" size="15.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </GridPane>
-                        <ComboBox layoutX="369.0" layoutY="184.0" prefHeight="25.0" prefWidth="160.0" promptText="English" styleClass="textfield" stylesheets="@../assets/css/style.css" />
+                        <Button layoutX="407.0" layoutY="186.0" mnemonicParsing="false" text="English" />
                      </children>
                   </AnchorPane>
                </children>
