@@ -47,9 +47,12 @@ import javafx.util.Callback;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
@@ -61,16 +64,104 @@ import javafx.util.Duration;
 
 
 public class AdminTest implements Initializable {
+    @FXML
+    private ResourceBundle bundle;
+    private Locale locale;
+
+
+    @FXML
+    private void btnEN(ActionEvent event) {
+        loading("en");
+    }
+
+    @FXML
+    private void btnVI(ActionEvent event) {
+        loading("vi");
+    }
+
+    private void loading(String lang) {
+        locale = new Locale(lang);
+        bundle = ResourceBundle.getBundle("config.lang", locale);
+        labelManagement.setText(bundle.getString("labelManagement"));
+        labelAdmin.setText(bundle.getString("labelAdmin"));
+        btnDBoard.setText(bundle.getString("btnDBoard"));
+        btnStaff.setText(bundle.getString("btnStaff"));
+        btnReport.setText(bundle.getString("btnReport"));
+        btnDom.setText(bundle.getString("btnDom"));
+        btnSalary.setText(bundle.getString("btnSalary"));
+        btnAccountInfo.setText(bundle.getString("btnAccountInfo"));
+        btnSetting.setText(bundle.getString("btnSetting"));
+        btnSignOut.setText(bundle.getString("btnSignOut"));
+        labelDashBoard.setText(bundle.getString("labelDashBoard"));
+        labelTotalStaff.setText(bundle.getString("labelTotalStaff"));
+        labelTotalSalary.setText(bundle.getString("labelTotalSalary"));
+        labelTotalSlot.setText(bundle.getString("labelTotalSlot"));
+        labelTotalReport.setText(bundle.getString("labelTotalReport"));
+        labelStaffs.setText(bundle.getString("labelStaffs"));
+
+
+        labelStaff.setText(bundle.getString("labelStaff"));
+        labelListStaff.setText(bundle.getString("labelListStaff"));
+        labelTotal.setText(bundle.getString("labelTotal"));
+        labelActive.setText(bundle.getString("labelActive"));
+        labelDeactive.setText(bundle.getString("labelDeactive"));
+        labelExport.setText(bundle.getString("labelExport"));
+        labelCreateStaff.setText(bundle.getString("labelCreateStaff"));
+        labelRefresh.setText(bundle.getString("labelRefresh"));
+        colId.setText(bundle.getString("colId"));
+        colName.setText(bundle.getString("colName"));
+        colGender.setText(bundle.getString("colGender"));
+        colPhone.setText(bundle.getString("colPhone"));
+        colDepartment.setText(bundle.getString("colDepartment"));
+        labelTurtorial.setText(bundle.getString("labelTurtorial"));
+        labelProfile.setText(bundle.getString("labelProfile"));
+        labelPhone.setText(bundle.getString("labelPhone"));
+        labelDeparment.setText(bundle.getString("labelDeparment"));
+        labelPositon.setText(bundle.getString("labelPositon"));
+        btnEditStaffInfo.setText(bundle.getString("btnEditStaffInfo"));
+        btnStaffDeleteInfo.setText(bundle.getString("btnStaffDeleteInfo"));
+        btnUpdateStaffInfo.setText(bundle.getString("btnUpdateStaffInfo"));
+        labelAccountInfo.setText(bundle.getString("labelAccountInfo"));
+        labelPerson.setText(bundle.getString("labelPerson"));
+        labelAccount.setText(bundle.getString("labelAccount"));
+        labelAccountFullname.setText(bundle.getString("labelAccountFullname"));
+        labelAccountGender.setText(bundle.getString("labelAccountGender"));
+        labelAccountDob.setText(bundle.getString("labelAccountDob"));
+        labelAccountPhone.setText(bundle.getString("labelAccountPhone"));
+        labelAccountID.setText(bundle.getString("labelAccountID"));
+        labelAccountUsername.setText(bundle.getString("labelAccountUsername"));
+        labelSetting.setText(bundle.getString("labelSetting"));
+        labelChosse.setText(bundle.getString("labelChosse"));
+    }
+
 
     @FXML
     private Label staffName1, staffName2, staffName3, staffName4, staffName5,
-            staffName6, staffEmail1, staffEmail2, staffEmail3, staffEmail4, staffEmail5, staffEmail6,lable;
+            staffName6, staffEmail1, staffEmail2, staffEmail3,
+            staffEmail4, staffEmail5, staffEmail6,
+            accountInfo_createDate, accountInfo_dob, accountInfo_email,
+            accountInfo_fullname, accountInfo_gender, accountInfo_phone, accountInfo_staffId,
+            accountInfo_username;
 
-    @FXML
-    private VBox vboxPagination;
 
+    // lable Vbox
     @FXML
-    private Label dashboard_lable1, dashboard_lable2, dashboard_lable3, dashboard_lable4;
+    private Label labelManagement, labelAdmin, labelChosse,labelSetting;
+
+    // labe Db
+    @FXML
+    private Label labelDashBoard, labelTotalStaff, labelTotalSalary,
+            labelTotalSlot, labelTotalReport, labelStaffs;
+    // labe Staff
+    @FXML
+    private Label labelStaff, labelListStaff, labelTotal, labelActive,
+            labelDeactive, labelExport, labelCreateStaff, labelRefresh, labelTurtorial, labelProfile,
+            labelPhone, labelDeparment, labelPositon;
+    // labe AccountInfo
+    @FXML
+    private Label labelAccountInfo, labelPerson, labelAccount,
+            labelAccountFullname, labelAccountGender, labelAccountDob, labelAccountPhone, labelAccountID,
+            labelAccountUsername;
 
     @FXML
     private Label dashboard_totalReport, dashboard_totalRoom,
@@ -79,13 +170,13 @@ public class AdminTest implements Initializable {
             staffDeactiveStaff, userDataModelTest;
 
     @FXML
-    private AnchorPane anchorAddAccount, anchorDashBoard,
+    private AnchorPane anchorDashBoard,
             anchorInfo, anchorReport, anchorRoom,
             anchorSalary, anchorSetting, anchorStaff, admin_form,
             anchorRegisterForm, anchorInfoStaff;
 
     @FXML
-    private Button btnAccountInfo, btnAddAccount, btnSalary,
+    private Button btnAccountInfo, btnSalary,
             btnDBoard, btnDom, btnReport, btnSetting,
             btnSignOut, btnStaff, btnChooseFile,
             closeAnchorParent2, closeAnchorParent1;
@@ -125,12 +216,8 @@ public class AdminTest implements Initializable {
             staffGenderInfo, staffDobInfo,
             staffPhoneInfo, staffEmailInfo, staffDepartmentInfo,
             staffPositionInfo;
-
     @FXML
     private DatePicker staffDob;
-
-    @FXML
-    private JFXRadioButton rollAdmin, rollUser, genMale, genFemale;
 
     @FXML
     private JFXComboBox<String> listDepartments, listPositions;
@@ -152,6 +239,8 @@ public class AdminTest implements Initializable {
     private ImageView btnClose;
 
     private ObservableList<String> staffInfo;
+    private ObservableList<String> accountInfo;
+
     private ObservableList<Staff> listStaff;
     StaffModel dao = new StaffModel();
     AlertMessage alert = new AlertMessage();
@@ -176,6 +265,14 @@ public class AdminTest implements Initializable {
         staffNameLabels = new Label[]{
                 staffName1, staffName2, staffName3, staffName4, staffName5, staffName6
         };
+        staffEmailLabels = new Label[]{
+                staffEmail1, staffEmail2, staffEmail3, staffEmail4, staffEmail5, staffEmail6
+        };
+        getTotalStaff();
+        getStaffInfo();
+        showInfoInLabels();
+        getAccountInfo();
+        setLabelsFromAccountInfo();
 
         if (userDataModel != null) {
             String username = userDataModel.getUsername();
@@ -194,7 +291,7 @@ public class AdminTest implements Initializable {
         Tooltip closeTooltip = new Tooltip("Close");
         Tooltip.install(closeAnchorParent1, closeTooltip);
         Tooltip.install(closeAnchorParent2, closeTooltip);
-        closeAnchorParent1.setOnAction(btnsClose);
+//        closeAnchorParent1.setOnAction(btnsClose);
         closeAnchorParent2.setOnAction(btnsClose);
 
 
@@ -303,14 +400,17 @@ public class AdminTest implements Initializable {
         Tooltip reloadTooltip = new Tooltip("Reload");
         Tooltip.install(btnReload, reloadTooltip);
         btnReload.setOnMouseClicked(e -> {
+            staffDeactiveStaff.setText(String.valueOf(StaffModel.getDeactiveStaff()));
+            staffActiveStaff.setText(String.valueOf(StaffModel.getActiveStaff()));
+            staffTotalStaff.setText(String.valueOf(StaffModel.getToTalStaff()));
             listStaff.clear();
             listStaff = new StaffModel().getAll();
             viewDataStaff.setItems(getItemsForPage(0));
+            getTotalStaff();
+            getStaffInfo();
+            showInfoInLabels();
         });
 
-        getTotalStaff();
-        getStaffInfo();
-        showInfoInLabels();
         AtomicReference<String> pathImgRef = new HandleImageFiles().handleBtn(btnChooseFile, circlePortrait);
         btnSubmitRegister.setOnMouseClicked(e -> {
             int id = Integer.parseInt(staffId.getText());
@@ -329,8 +429,6 @@ public class AdminTest implements Initializable {
             RadioButton selectRadioRoll = (RadioButton) radioRoll.getSelectedToggle();
             String rollValue = selectRadioRoll.getText();
             int roll = rollValue == "USER" ? 1 : 2;
-
-//             lam thử cái choose language xem
 
             //VALIDATE REGISTER
             if (name.trim().isBlank() || email.trim().isBlank() || phoneNumber.trim().isBlank()) {
@@ -386,11 +484,15 @@ public class AdminTest implements Initializable {
     void closeAnchor(MouseEvent event) {
     }
 
+    public void getAccountInfo() {
+        accountInfo = dao.getAccountInfor();
+        System.out.println(accountInfo);
+    }
+
     public void getStaffInfo() {
         staffInfo = dao.getFullnames();
     }
 
-    // get the names of the last four users
     public void showInfoInLabels() {
         if (staffInfo != null && staffInfo.size() >= 12) {
             for (int i = 0; i < 6; i++) {
@@ -400,6 +502,20 @@ public class AdminTest implements Initializable {
         } else {
             System.out.println("Lỗi");
         }
+    }
+
+    public void setLabelsFromAccountInfo() {
+        if (accountInfo != null && accountInfo.size() >= 7) {
+            accountInfo_fullname.setText(accountInfo.get(0));
+            String gender = accountInfo.get(1).equals("1") ? "Male" : "Female";
+            accountInfo_gender.setText(gender);
+            accountInfo_dob.setText(accountInfo.get(2));
+            accountInfo_phone.setText(accountInfo.get(3));
+            accountInfo_email.setText(accountInfo.get(4));
+            accountInfo_staffId.setText(accountInfo.get(5));
+            accountInfo_username.setText(accountInfo.get(6));
+        }
+
     }
 
 
@@ -417,6 +533,7 @@ public class AdminTest implements Initializable {
     public void exit() {
         System.exit(0);
     }
+
     private double x = 0;
     private double y = 0;
 

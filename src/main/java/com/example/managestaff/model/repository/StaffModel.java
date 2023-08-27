@@ -48,8 +48,6 @@ public class StaffModel {
                 String email = resultSet.getString("email");
                 listData.add(fullname);
                 listData.add(email);
-
-
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -165,6 +163,38 @@ public class StaffModel {
             e.printStackTrace();
         }
         return null;
+    }
+    public ObservableList<String> getAccountInfor() {
+        ObservableList<String> listData = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM info_admin ";
+        Properties properties = new JDBCConnect().dbConfig();
+        try (Connection connect = JDBCConnect.getConnection(properties);
+             PreparedStatement ps = connect.prepareStatement(sql);
+             ResultSet resultSet = ps.executeQuery();
+        ) {
+            while (resultSet.next()) {
+                String fullname = resultSet.getString("fullname");
+                String gender = String.valueOf(resultSet.getInt("gender"));
+                String dob = String.valueOf(resultSet.getDate("dob"));
+                String phone = resultSet.getString("phone");
+                String email = resultSet.getString("email");
+                String staffId = String.valueOf(resultSet.getInt("staff_id"));
+                String username = resultSet.getString("username");
+
+                listData.add(fullname);
+                listData.add(gender);
+                listData.add(dob);
+                listData.add(phone);
+                listData.add(email);
+                listData.add(staffId);
+                listData.add(username);
+
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listData;
     }
 }
 

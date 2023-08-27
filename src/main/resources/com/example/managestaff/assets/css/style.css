@@ -70,6 +70,10 @@
     -fx-background-radius:10px;
 }
 
+.separator .line {
+    -fx-border-color: #2c82fb;
+    -fx-border-width: 1;
+}
 
 .card2{
     -fx-background-color:#fff;
@@ -126,7 +130,7 @@
 
 .search{
     -fx-border-color:#6F6F6F;
-    -fx-border-radius:30;
+    -fx-border-radius:20;
 }
 
 
@@ -154,7 +158,7 @@
     -fx-font-size:14px;
     -fx-background-color:transparent;
    -fx-border-color:linear-gradient(to top right,#2c82fb,#2c82fb);
-   -fx-border-radius:8px;
+   -fx-border-radius:5px;
    -fx-border-width:2px;
    -fx-padding:0px;
 }
@@ -270,7 +274,28 @@
 .pagination .dot:hover {
     -fx-border-color: #007bff;
 }
+.btnExport{
+    -fx-background-color:#0ca668;
+    -fx-background-radius:5px;
+}
+.btnExport:hover{
+        -fx-background-color:#33b47f;
+}
+.btnAdd{
+    -fx-background-color:#0a66c2;
+    -fx-background-radius:5px;
+}
+.btnAdd:hover{
+    -fx-background-color:#448cc8;
 
+}
+.btnRefesh{
+    -fx-background-color:#3f8dcd;
+    -fx-background-radius:5px;
+}
+.btnRefesh:hover{
+    -fx-background-color:#5bbfd8;
+}
 
 
 /*   PAGINATION END           */

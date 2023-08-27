@@ -6,10 +6,7 @@ import com.example.managestaff.model.services.Oclock;
 import com.example.managestaff.model.services.SwitchScene;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -28,10 +25,12 @@ public class Login implements Initializable {
     private PasswordField inputPassword;
 
     @FXML
-    private TextField inputUsername;
+    private TextField inputUsername,showPassword;
 
     @FXML
     private Label loginMsg, loginOclock;
+    @FXML
+    private CheckBox selectShowPassword;
 
     @FXML
     void onClickedLogin(MouseEvent event) throws Exception {
@@ -53,7 +52,6 @@ public class Login implements Initializable {
             UserDataModel userDataModel = new UserDataModel();
             userDataModel.setUsername(usernameStr);
             new SwitchScene(loginScene, "/com/example/managestaff/view/admin.fxml", userDataModel);
-v
         } else {
             alertMessage.errorMessage("Incorrect Username/Passwrod");
         }
@@ -61,6 +59,17 @@ v
 
     public void exit() {
         System.exit(0);
+    }
+    public void showPassword(){
+        if(selectShowPassword.isSelected()){
+            showPassword.setText(inputPassword.getText());
+            showPassword.setVisible(true);
+            inputPassword.setVisible(false);
+        }else{
+            inputPassword.setText(showPassword.getText());
+            showPassword.setVisible(false);
+            inputPassword.setVisible(true);
+        }
     }
 
     @FXML

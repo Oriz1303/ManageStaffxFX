@@ -9,7 +9,7 @@ import javafx.util.Duration;
 
 import java.text.SimpleDateFormat;
 
-public class Oclock {
+public class  Oclock {
 
     public static void runClock(Label label) {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> updateClock(label)));

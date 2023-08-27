@@ -30,6 +30,11 @@
                <padding>
                   <Insets left="15.0" />
                </padding></PasswordField>
+            <TextField fx:id="showPassword" layoutX="126.0" layoutY="339.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="277.0" promptText=" Password" style="-fx-border-color: #E1E1E1; -fx-background-color: tranparent; -fx-border-radius: 50;" visible="false">
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </TextField>
             <Label layoutX="164.0" layoutY="228.0" text="Access your account" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans MT" size="24.0" />
@@ -40,7 +45,7 @@
                   <Font name="Gill Sans MT Bold" size="27.0" />
                </font>
             </Label>
-            <CheckBox layoutX="127.0" layoutY="392.0" mnemonicParsing="false" text="ShowPasswssord">
+            <CheckBox fx:id="selectShowPassword" layoutX="127.0" layoutY="392.0" mnemonicParsing="false" onAction="#showPassword" text="ShowPasswssord">
                <font>
                   <Font name="Gill Sans MT" size="14.0" />
                </font>
