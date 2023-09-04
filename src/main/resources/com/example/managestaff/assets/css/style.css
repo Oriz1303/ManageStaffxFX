@@ -296,8 +296,9 @@
 .btnRefesh:hover{
     -fx-background-color:#5bbfd8;
 }
-
-
-/*   PAGINATION END           */
+.btnVn{
+    -fx-background-color: #eff2f6;
+    -fx-border-color: black;
+    }
 
 

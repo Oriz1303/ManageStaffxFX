@@ -870,7 +870,7 @@
                                         <Pagination fx:id="paginationStaff" prefHeight="561.0" prefWidth="1039.0" stylesheets="@../assets/css/pagination.css" />
                                     </children>
                                 </VBox>
-                        <HBox alignment="TOP_CENTER" layoutX="566.0" layoutY="17.0" prefHeight="43.0" prefWidth="527.0" spacing="20.0">
+                        <HBox alignment="TOP_CENTER" layoutX="588.0" layoutY="17.0" prefHeight="43.0" prefWidth="527.0" spacing="20.0">
                            <children>
                               <HBox alignment="TOP_CENTER" prefHeight="38.0" prefWidth="231.0" spacing="5.0">
                                  <children>
@@ -928,7 +928,7 @@
                                     <Insets top="5.0" />
                                  </HBox.margin>
                               </HBox>
-                              <HBox alignment="TOP_CENTER" prefHeight="38.0" prefWidth="242.0" spacing="5.0">
+                              <HBox alignment="TOP_CENTER" prefHeight="38.0" prefWidth="297.0" spacing="5.0">
                                  <children>
                                                 <FontAwesomeIcon fill="#8d5f5f" glyphName="USER_TIMES" size="1.5em">
                                        <HBox.margin>
@@ -1665,14 +1665,20 @@
                                         <Font name="Gill Sans MT Bold" size="36.0" />
                                     </font>
                                 </Label>
-                        <Button layoutX="362.0" layoutY="225.0" mnemonicParsing="false" onAction="#btnEN" text="English" />
-                        <Button layoutX="362.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnVI" text="Viet Nam" />
-                        <ImageView fitHeight="39.0" fitWidth="33.0" layoutX="437.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+                        <Button layoutX="325.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnEN" prefHeight="25.0" prefWidth="149.0" styleClass="btnVn" stylesheets="@../assets/css/style.css" text="English (UK)">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Button>
+                        <Button layoutX="162.0" layoutY="147.0" mnemonicParsing="false" onAction="#btnVI" prefHeight="32.0" prefWidth="149.0" styleClass="btnVn" stylesheets="@../assets/css/style.css" text="Tiếng Việt">
+                           <font>
+                              <Font name="Gill Sans MT" size="15.0" />
+                           </font></Button>
+                        <ImageView fitHeight="24.0" fitWidth="18.0" layoutX="329.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assets/images/img_staff/English.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="39.0" fitWidth="33.0" layoutX="437.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="166.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assets/images/img_staff/Vietnam.png" />
                            </image>

@@ -10,13 +10,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -39,7 +33,7 @@ import javafx.scene.layout.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.stage.DirectoryChooser;
+
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -47,20 +41,17 @@ import javafx.util.Callback;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.Optional;
+
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
 import javafx.scene.control.TableCell;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
-import javafx.util.Duration;
 
 
 public class AdminTest implements Initializable {
@@ -81,6 +72,7 @@ public class AdminTest implements Initializable {
 
     private void loading(String lang) {
         locale = new Locale(lang);
+
         bundle = ResourceBundle.getBundle("config.lang", locale);
         labelManagement.setText(bundle.getString("labelManagement"));
         labelAdmin.setText(bundle.getString("labelAdmin"));
@@ -146,7 +138,7 @@ public class AdminTest implements Initializable {
 
     // lable Vbox
     @FXML
-    private Label labelManagement, labelAdmin, labelChosse,labelSetting;
+    private Label labelManagement, labelAdmin, labelChosse, labelSetting;
 
     // labe Db
     @FXML
